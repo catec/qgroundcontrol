@@ -28,6 +28,8 @@
 #include <QtQml>
 #include <QQmlEngine>
 
+#include "../Vehicle/gica.h"
+
 /// @file
 ///     @brief Core Plugin Interface for QGroundControl - Default Implementation
 ///     @author Gus Grubba <gus@auterion.com>
@@ -373,6 +375,10 @@ QQmlApplicationEngine* QGCCorePlugin::createQmlApplicationEngine(QObject* parent
     qmlEngine->addImportPath("qrc:/qml");
     qmlEngine->rootContext()->setContextProperty("joystickManager", qgcApp()->toolbox()->joystickManager());
     qmlEngine->rootContext()->setContextProperty("debugMessageModel", AppMessages::getModel());
+
+    GICA gica;
+    qmlEngine->rootContext()->setContextProperty("gica", &gica);
+
     return qmlEngine;
 }
 

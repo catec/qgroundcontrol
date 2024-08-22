@@ -161,4 +161,30 @@ Item {
         show:                   !QGroundControl.videoManager.fullScreen &&
                                     (videoControl.pipState.state === videoControl.pipState.pipState || mapControl.pipState.state === mapControl.pipState.pipState)
     }
+
+    // GICA Data Visualization widget
+    Window {
+        width: 600
+        height: 250
+        
+        title: "GICA Data Visualization"
+        
+        visible: true
+
+        // Make the window not closable
+        onClosing: {
+            close.accepted = false;
+        }
+
+        // Prevent window resizing
+        maximumWidth: width
+        minimumWidth: width
+        maximumHeight: height
+        minimumHeight: height
+
+        // Instanciate the qml interface
+        GICAWidget {
+            id: gicaWidgetInstance
+        }
+    }
 }

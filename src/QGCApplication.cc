@@ -102,6 +102,7 @@
 #include "QGCMAVLink.h"
 #include "VehicleLinkManager.h"
 #include "Autotune.h"
+#include "gica.h"
 
 #if defined(QGC_ENABLE_PAIRING)
 #include "PairingManager.h"
@@ -463,6 +464,8 @@ void QGCApplication::_initCommon()
     qmlRegisterUncreatableType<LinkInterface>           (kQGCVehicle,                       1, 0, "LinkInterface",              kRefOnly);
     qmlRegisterUncreatableType<VehicleLinkManager>      (kQGCVehicle,                       1, 0, "VehicleLinkManager",         kRefOnly);
     qmlRegisterUncreatableType<Autotune>                (kQGCVehicle,                       1, 0, "Autotune",                   kRefOnly);
+    
+    qmlRegisterType<GICA>                               (kQGCVehicle,                       1, 0, "GICA"                                );
 
     qmlRegisterUncreatableType<MissionController>       (kQGCControllers,                   1, 0, "MissionController",          kRefOnly);
     qmlRegisterUncreatableType<GeoFenceController>      (kQGCControllers,                   1, 0, "GeoFenceController",         kRefOnly);
