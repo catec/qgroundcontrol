@@ -57,9 +57,9 @@ ColumnLayout {
             width: implicitWidth
             onClicked: stackView.currentIndex = 0
             background: Rectangle {
-                color: bar.currentIndex == 0 ? "white" : "gray"
+                color: bar.currentIndex == 0 ? qgcPal.buttonHighlight : qgcPal.button
                 border.width: 1
-                border.color: bar.currentIndex == 0 ? "black" : "transparent"
+                border.color: bar.currentIndex == 0 ? "black" : "black"
             }
         }
         
@@ -68,9 +68,9 @@ ColumnLayout {
             width: implicitWidth
             onClicked: stackView.currentIndex = 1
             background: Rectangle {
-                color: bar.currentIndex == 1 ? "white" : "gray"
+                color: bar.currentIndex == 1 ? qgcPal.buttonHighlight : qgcPal.button
                 border.width: 1
-                border.color: bar.currentIndex == 1 ? "black" : "transparent"
+                border.color: bar.currentIndex == 1 ? "black" : "black"
             }
         }
         
@@ -79,9 +79,9 @@ ColumnLayout {
             width: implicitWidth
             onClicked: stackView.currentIndex = 2
             background: Rectangle {
-                color: bar.currentIndex == 2 ? "white" : "gray"
+                color: bar.currentIndex == 2 ? qgcPal.buttonHighlight : qgcPal.button
                 border.width: 1
-                border.color: bar.currentIndex == 2 ? "black" : "transparent"
+                border.color: bar.currentIndex == 2 ? "black" : "black"
             }
         }
 
@@ -101,9 +101,10 @@ ColumnLayout {
 
                 // Position
                 Rectangle { 
-                    border.color: "black"
-                    border.width: 1
+                    // border.color: "black"
+                    // border.width: 1
                     radius: 5
+                    color: qgcPal.windowShade
                     width: 180
                     height: 180
                     
@@ -114,7 +115,7 @@ ColumnLayout {
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
                         
-                        Text { text: "Position:" }
+                        Text { text: "Position:"; color: qgcPal.text }
                         
                         RowLayout {
                             spacing: 5
@@ -125,11 +126,14 @@ ColumnLayout {
                                 Rectangle {
                                     width: xLabelPos.width
                                     height: dataDisplayHeight
+
+                                    color: "transparent"
                                     
                                     Text {
                                         id: xLabelPos
                                         text: "X:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -137,10 +141,13 @@ ColumnLayout {
                                     width: yLabelPos.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: yLabelPos
                                         text: "Y:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -148,10 +155,13 @@ ColumnLayout {
                                     width: zLabelPos.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: zLabelPos
                                         text: "Z:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
                             }
@@ -164,7 +174,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -181,7 +191,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -198,7 +208,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -220,9 +230,10 @@ ColumnLayout {
                 
                 // Velocity
                 Rectangle {
-                    border.color: "black"
-                    border.width: 1
+                    // border.color: "black"
+                    // border.width: 1
                     radius: 5
+                    color: qgcPal.windowShade
                     width: 180
                     height: 180
                     
@@ -233,7 +244,7 @@ ColumnLayout {
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
                         
-                        Text { text: "Velocity:" }
+                        Text { text: "Velocity:"; color: qgcPal.text }
                         
                         RowLayout {
                             spacing: 5
@@ -244,10 +255,13 @@ ColumnLayout {
                                     width: xLabelVel.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: xLabelVel
                                         text: "X:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -255,10 +269,13 @@ ColumnLayout {
                                     width: yLabelVel.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: yLabelVel
                                         text: "Y:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -266,10 +283,13 @@ ColumnLayout {
                                     width: zLabelVel.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: zLabelVel
                                         text: "Z:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -283,7 +303,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -300,7 +320,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -317,7 +337,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -339,9 +359,10 @@ ColumnLayout {
 
                 // Acceleration
                 Rectangle {
-                    border.color: "black"
-                    border.width: 1
+                    // border.color: "black"
+                    // border.width: 1
                     radius: 5
+                    color: qgcPal.windowShade
                     width: 180
                     height: 180
                     
@@ -352,7 +373,7 @@ ColumnLayout {
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
                         
-                        Text { text: "Acceleration:" }
+                        Text { text: "Acceleration:"; color: qgcPal.text }
                         
                         RowLayout {
                             spacing: 5
@@ -364,10 +385,13 @@ ColumnLayout {
                                     width: xLabelAcc.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: xLabelAcc
                                         text: "X:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -375,10 +399,13 @@ ColumnLayout {
                                     width: yLabelAcc.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: yLabelAcc
                                         text: "Y:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -386,10 +413,13 @@ ColumnLayout {
                                     width: zLabelAcc.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: zLabelAcc
                                         text: "Z:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -403,7 +433,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -420,7 +450,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -437,7 +467,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -471,9 +501,10 @@ ColumnLayout {
 
                 // Position
                 Rectangle { 
-                    border.color: "black"
-                    border.width: 1
+                    // border.color: "black"
+                    // border.width: 1
                     radius: 5
+                    color: qgcPal.windowShade
                     width: 180
                     height: 180
                     
@@ -484,7 +515,7 @@ ColumnLayout {
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
                         
-                        Text { text: "Position:" }
+                        Text { text: "Position:"; color: qgcPal.text }
                         
                         RowLayout {
                             spacing: 5
@@ -496,10 +527,13 @@ ColumnLayout {
                                     width: rollLabelPos.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: rollLabelPos
                                         text: "Roll:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -507,10 +541,13 @@ ColumnLayout {
                                     width: pitchLabelPos.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: pitchLabelPos
                                         text: "Pitch:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -518,10 +555,13 @@ ColumnLayout {
                                     width: yawLabelPos.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: yawLabelPos
                                         text: "Yaw:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
                             }
@@ -534,7 +574,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -551,7 +591,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -565,7 +605,7 @@ ColumnLayout {
                                 
                                 // Angular position yaw value
                                 Rectangle {
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     width: dataDisplayWidth
@@ -589,9 +629,10 @@ ColumnLayout {
                 
                 // Velocity
                 Rectangle {
-                    border.color: "black"
-                    border.width: 1
+                    // border.color: "black"
+                    // border.width: 1
                     radius: 5
+                    color: qgcPal.windowShade
                     width: 180
                     height: 180
                     
@@ -602,7 +643,7 @@ ColumnLayout {
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
                         
-                        Text { text: "Velocity:" }
+                        Text { text: "Velocity:"; color: qgcPal.text }
                         
                         RowLayout {
                             spacing: 5
@@ -614,10 +655,13 @@ ColumnLayout {
                                     width: rollLabelVel.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: rollLabelVel
                                         text: "Roll:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -625,10 +669,13 @@ ColumnLayout {
                                     width: pitchLabelVel.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: pitchLabelVel
                                         text: "Pitch:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -636,10 +683,13 @@ ColumnLayout {
                                     width: yawLabelVel.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: yawLabelVel
                                         text: "Yaw:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
                             }
@@ -652,7 +702,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -669,7 +719,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -686,7 +736,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -708,9 +758,10 @@ ColumnLayout {
 
                 // Acceleration
                 Rectangle {
-                    border.color: "black"
-                    border.width: 1
+                    // border.color: "black"
+                    // border.width: 1
                     radius: 5
+                    color: qgcPal.windowShade
                     width: 180
                     height: 180
                     
@@ -721,7 +772,7 @@ ColumnLayout {
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
                         
-                        Text { text: "Acceleration:" }
+                        Text { text: "Acceleration:"; color: qgcPal.text }
                         
                         RowLayout {
                             spacing: 5
@@ -733,10 +784,13 @@ ColumnLayout {
                                     width: rollLabelAcc.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: rollLabelAcc
                                         text: "Roll:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -744,10 +798,13 @@ ColumnLayout {
                                     width: pitchLabelAcc.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: pitchLabelAcc
                                         text: "Pitch:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
 
@@ -755,10 +812,13 @@ ColumnLayout {
                                     width: yawLabelAcc.width
                                     height: dataDisplayHeight
                                     
+                                    color: "transparent"
+                                    
                                     Text {
                                         id: yawLabelAcc
                                         text: "Yaw:"
                                         anchors.verticalCenter: parent.verticalCenter
+                                        color: qgcPal.text
                                     }
                                 }
                             }
@@ -771,7 +831,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -788,7 +848,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -805,7 +865,7 @@ ColumnLayout {
                                     width: dataDisplayWidth
                                     height: dataDisplayHeight
 
-                                    border.color: "black"
+                                    // border.color: "black"
                                     border.width: 1
                                     radius: 5
                                     
@@ -834,9 +894,10 @@ ColumnLayout {
                 anchors.leftMargin: 10
                 anchors.left: parent.left
                 Rectangle { 
-                    border.color: "black"
-                    border.width: 1
+                    // border.color: "black"
+                    // border.width: 1
                     radius: 5
+                    color: qgcPal.windowShade
                     width: 280
                     height: 180
                 
@@ -854,10 +915,13 @@ ColumnLayout {
                                 width: integrityLabel.width
                                 height: dataDisplayHeight
                                 
+                                color: "transparent"
+                                
                                 Text {
                                     id: integrityLabel
                                     text: "Integrity:"
                                     anchors.verticalCenter: parent.verticalCenter
+                                    color: qgcPal.text
                                 }
                             }
 
@@ -865,10 +929,13 @@ ColumnLayout {
                                 width: numSatVistaLabel.width
                                 height: dataDisplayHeight
                                 
+                                color: "transparent"
+                                
                                 Text {
                                     id: numSatVistaLabel
                                     text: "Num. sat. vista:"
                                     anchors.verticalCenter: parent.verticalCenter
+                                    color: qgcPal.text
                                 }
                             }
 
@@ -876,10 +943,13 @@ ColumnLayout {
                                 width: sbasCorrLabel.width
                                 height: dataDisplayHeight
                                 
+                                color: "transparent"
+                                
                                 Text {
                                     id: sbasCorrLabel
                                     text: "SBAS correction:"
                                     anchors.verticalCenter: parent.verticalCenter
+                                    color: qgcPal.text
                                 }
                             }
                         }
@@ -892,7 +962,7 @@ ColumnLayout {
                                 width: dataDisplayWidth
                                 height: dataDisplayHeight
 
-                                border.color: "black"
+                                // border.color: "black"
                                 border.width: 1
                                 radius: 5
                                 
@@ -909,7 +979,7 @@ ColumnLayout {
                                 width: dataDisplayWidth
                                 height: dataDisplayHeight
 
-                                border.color: "black"
+                                // border.color: "black"
                                 border.width: 1
                                 radius: 5
                                 
@@ -928,7 +998,7 @@ ColumnLayout {
 
                                 color: miscSbasCorrection ? "green" : "red"
                                 
-                                border.color: "black"
+                                // border.color: "black"
                                 border.width: 1
                                 radius: 5
                             }

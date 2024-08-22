@@ -171,6 +171,8 @@ Item {
         
         visible: true
 
+        color: qgcPal.window
+
         // Make the window not closable
         onClosing: {
             close.accepted = false;
