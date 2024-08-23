@@ -165,7 +165,7 @@ Item {
     // GICA Data Visualization widget
     Window {
         width: 600
-        height: 250
+        height: 850
         
         title: "GICA Data Visualization"
         
