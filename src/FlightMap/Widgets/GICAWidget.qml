@@ -967,7 +967,7 @@ ColumnLayout {
                         width: dataDisplayWidth
                         height: dataDisplayHeight
 
-                        color: miscSbasCorrection ? "green" : "red"
+                        color: miscSbasCorrection ? qgcPal.colorGreen : qgcPal.colorRed
                         
                         // border.color: "black"
                         border.width: 1
