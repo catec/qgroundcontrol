@@ -17,6 +17,8 @@
 #include <QObject>
 #include <QVariantList>
 
+#include "../Vehicle/gica.h"
+
 /// @file
 /// @brief Core Plugin Interface for QGroundControl
 /// @author Gus Grubba <gus@auterion.com>
@@ -197,6 +199,8 @@ public:
     // Custom builds can start there first run prompt ids from here
     static const int firstRunPromptIdsFirstCustomId = 10000;
 
+    GICA* gica() const { return _gica; }
+
 signals:
     void settingsPagesChanged       ();
     void analyzePagesChanged        ();
@@ -214,4 +218,5 @@ protected:
 
 private:
     QGCCorePlugin_p*    _p;
+    GICA*               _gica;
 };

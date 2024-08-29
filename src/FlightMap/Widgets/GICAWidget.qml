@@ -11,49 +11,17 @@ import QGroundControl.FactControls  1.0
 import QGroundControl.Controls      1.0
 import QGroundControl.ScreenTools   1.0
 import QGroundControl.Controllers   1.0
-import QGroundControl.Vehicle       1.0
+
+import QGroundControl.Geosub.GICA   1.0
 
 ColumnLayout {
-
-    GICA {
-        id: gicaInstance
-    }
-
-    property double linearPosX : gicaInstance.linearPosX
-    property double linearPosY : gicaInstance.linearPosY
-    property double linearPosZ : gicaInstance.linearPosZ
-    property double linearVelX : gicaInstance.linearVelX
-    property double linearVelY : gicaInstance.linearVelY
-    property double linearVelZ : gicaInstance.linearVelZ
-    property double linearAccX : gicaInstance.linearAccX
-    property double linearAccY : gicaInstance.linearAccY
-    property double linearAccZ : gicaInstance.linearAccZ
-
-    property double angularPosRoll  : gicaInstance.angularPosRoll
-    property double angularPosPitch : gicaInstance.angularPosPitch
-    property double angularPosYaw   : gicaInstance.angularPosYaw
-    property double angularVelRoll  : gicaInstance.angularVelRoll
-    property double angularVelPitch : gicaInstance.angularVelPitch
-    property double angularVelYaw   : gicaInstance.angularVelYaw
-    property double angularAccRoll  : gicaInstance.angularAccRoll
-    property double angularAccPitch : gicaInstance.angularAccPitch
-    property double angularAccYaw   : gicaInstance.angularAccYaw
-
-    property double miscIntegrity    : gicaInstance.miscIntegrity
-    property int miscNumSatVista     : gicaInstance.miscNumSatVista
-    property bool miscSbasCorrection : gicaInstance.miscSbasCorrection
-
     property real dataDisplayHeight : 25
     property real dataDisplayWidth  : 100
 
     spacing: 10
 
     anchors.top: parent.top
-    // anchors.left: parent.left
-
     anchors.topMargin: 10
-    // anchors.leftMargin: 10
-
     anchors.horizontalCenter: parent.horizontalCenter
     
     // Vertical separator
@@ -147,7 +115,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearPosX.toFixed(3)
+                                text: gica.linearPosX.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -164,7 +132,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearPosY.toFixed(3)
+                                text: gica.linearPosY.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -181,7 +149,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearPosZ.toFixed(3)
+                                text: gica.linearPosZ.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -274,7 +242,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearVelX.toFixed(3)
+                                text: gica.linearVelX.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -291,7 +259,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearVelY.toFixed(3)
+                                text: gica.linearVelY.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -308,7 +276,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearVelZ.toFixed(3)
+                                text: gica.linearVelZ.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -325,8 +293,6 @@ ColumnLayout {
 
         // Acceleration
         Rectangle {
-            // border.color: "black"
-            // border.width: 1
             radius: 5
             color: qgcPal.windowShade
             width: 180
@@ -404,7 +370,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearAccX.toFixed(3)
+                                text: gica.linearAccX.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -421,7 +387,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearAccY.toFixed(3)
+                                text: gica.linearAccY.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -438,7 +404,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: linearAccZ.toFixed(3)
+                                text: gica.linearAccZ.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -470,8 +436,6 @@ ColumnLayout {
 
         // Position
         Rectangle { 
-            // border.color: "black"
-            // border.width: 1
             radius: 5
             color: qgcPal.windowShade
             width: 180
@@ -548,7 +512,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: angularPosRoll.toFixed(3)
+                                text: gica.angularPosRoll.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -565,7 +529,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: angularPosPitch.toFixed(3)
+                                text: gica.angularPosPitch.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -581,7 +545,7 @@ ColumnLayout {
                             height: dataDisplayHeight
                             
                             Text {
-                                text: angularPosYaw.toFixed(3)
+                                text: gica.angularPosYaw.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -598,8 +562,6 @@ ColumnLayout {
         
         // Velocity
         Rectangle {
-            // border.color: "black"
-            // border.width: 1
             radius: 5
             color: qgcPal.windowShade
             width: 180
@@ -676,7 +638,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: angularVelRoll.toFixed(3)
+                                text: gica.angularVelRoll.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -693,7 +655,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: angularVelPitch.toFixed(3)
+                                text: gica.angularVelPitch.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -710,7 +672,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: angularVelYaw.toFixed(3)
+                                text: gica.angularVelYaw.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -727,8 +689,6 @@ ColumnLayout {
 
         // Acceleration
         Rectangle {
-            // border.color: "black"
-            // border.width: 1
             radius: 5
             color: qgcPal.windowShade
             width: 180
@@ -805,7 +765,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: angularAccRoll.toFixed(3)
+                                text: gica.angularAccRoll.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -822,7 +782,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: angularAccPitch.toFixed(3)
+                                text: gica.angularAccPitch.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -839,7 +799,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: angularAccYaw.toFixed(3)
+                                text: gica.angularAccYaw.toFixed(4)
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -897,14 +857,14 @@ ColumnLayout {
                     }
 
                     Rectangle {
-                        width: numSatVistaLabel.width
+                        width: numSatLabel.width
                         height: dataDisplayHeight
                         
                         color: "transparent"
                         
                         Text {
-                            id: numSatVistaLabel
-                            text: "Satellite number:"
+                            id: numSatLabel
+                            text: "Number of satellites:"
                             anchors.verticalCenter: parent.verticalCenter
                             color: qgcPal.text
                         }
@@ -938,14 +898,14 @@ ColumnLayout {
                         radius: 5
                         
                         Text {
-                            text: miscIntegrity.toFixed(3)
+                            text: gica.miscIntegrity.toFixed(4)
                             anchors.leftMargin: 10
                             anchors.left: parent.left
                             anchors.verticalCenter: parent.verticalCenter
                         }
                     }
 
-                    // Num. sat. vista value
+                    // Num. sat. value
                     Rectangle {
                         width: dataDisplayWidth
                         height: dataDisplayHeight
@@ -955,7 +915,7 @@ ColumnLayout {
                         radius: 5
                         
                         Text {
-                            text: miscNumSatVista
+                            text: gica.miscNumSat
                             anchors.leftMargin: 10
                             anchors.left: parent.left
                             anchors.verticalCenter: parent.verticalCenter
@@ -967,7 +927,7 @@ ColumnLayout {
                         width: dataDisplayWidth
                         height: dataDisplayHeight
 
-                        color: miscSbasCorrection ? qgcPal.colorGreen : qgcPal.colorRed
+                        color: gica.miscSbasCorrection ? qgcPal.colorGreen : qgcPal.colorRed
                         
                         // border.color: "black"
                         border.width: 1

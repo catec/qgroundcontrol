@@ -15,6 +15,7 @@
 #include <Eigen/Eigen>
 
 #include "Vehicle.h"
+#include "gica.h"
 #include "MAVLinkProtocol.h"
 #include "FirmwarePluginManager.h"
 #include "LinkManager.h"
@@ -183,6 +184,10 @@ Vehicle::Vehicle(LinkInterface*             link,
     qCDebug(VehicleLog) << "Link started with Mavlink " << (_mavlink->getCurrentVersion() >= 200 ? "V2" : "V1");
 
     connect(_mavlink, &MAVLinkProtocol::messageReceived,        this, &Vehicle::_mavlinkMessageReceived);
+    
+    QGCCorePlugin* qgcCorePlugin = _toolbox->corePlugin();    
+    connect(_mavlink, &MAVLinkProtocol::messageReceived,        qgcCorePlugin->gica(), &GICA::mavlinkMessageReceived);
+
     connect(_mavlink, &MAVLinkProtocol::mavlinkMessageStatus,   this, &Vehicle::_mavlinkMessageStatus);
 
     connect(this, &Vehicle::flightModeChanged,          this, &Vehicle::_handleFlightModeChanged);
