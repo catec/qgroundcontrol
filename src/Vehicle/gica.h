@@ -103,6 +103,30 @@ public slots:
 
 private:
 
+    void setLinearPosX            (float value);
+    void setLinearPosY            (float value);
+    void setLinearPosZ            (float value);
+    void setLinearVelX            (float value);
+    void setLinearVelY            (float value);
+    void setLinearVelZ            (float value);
+    void setLinearAccX            (float value);
+    void setLinearAccY            (float value);
+    void setLinearAccZ            (float value);
+
+    void setAngularPosRoll        (float value);
+    void setAngularPosPitch       (float value);
+    void setAngularPosYaw         (float value);
+    void setAngularVelRoll        (float value);
+    void setAngularVelPitch       (float value);
+    void setAngularVelYaw         (float value);
+    void setAngularAccRoll        (float value);
+    void setAngularAccPitch       (float value);
+    void setAngularAccYaw         (float value);
+
+    void setMiscIntegrity         (float value);
+    void setMiscNumSat            (int value);
+    void setMiscSbasCorrection    (bool value);
+
     float    _linearPosX;
     float    _linearPosY;
     float    _linearPosZ;
