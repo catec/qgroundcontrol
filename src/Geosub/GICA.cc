@@ -1,4 +1,4 @@
-#include "gica.h"
+#include "GICA.h"
 
 GICA::GICA(QObject* parent): 
     QObject(parent),

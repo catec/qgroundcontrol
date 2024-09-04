@@ -102,7 +102,7 @@
 #include "QGCMAVLink.h"
 #include "VehicleLinkManager.h"
 #include "Autotune.h"
-#include "../Geosub/gica.h"
+#include "../Geosub/GICA.h"
 
 #if defined(QGC_ENABLE_PAIRING)
 #include "PairingManager.h"
