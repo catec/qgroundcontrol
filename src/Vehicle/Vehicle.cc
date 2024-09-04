@@ -15,7 +15,7 @@
 #include <Eigen/Eigen>
 
 #include "Vehicle.h"
-#include "gica.h"
+#include "../Geosub/gica.h"
 #include "MAVLinkProtocol.h"
 #include "FirmwarePluginManager.h"
 #include "LinkManager.h"

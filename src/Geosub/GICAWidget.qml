@@ -12,8 +12,6 @@ import QGroundControl.Controls      1.0
 import QGroundControl.ScreenTools   1.0
 import QGroundControl.Controllers   1.0
 
-import QGroundControl.Geosub.GICA   1.0
-
 ColumnLayout {
     property real dataDisplayHeight : 25
     property real dataDisplayWidth  : 100

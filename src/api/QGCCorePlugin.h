@@ -17,7 +17,7 @@
 #include <QObject>
 #include <QVariantList>
 
-#include "../Vehicle/gica.h"
+#include "../Geosub/gica.h"
 
 /// @file
 /// @brief Core Plugin Interface for QGroundControl

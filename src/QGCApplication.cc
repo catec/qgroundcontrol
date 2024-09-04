@@ -102,7 +102,7 @@
 #include "QGCMAVLink.h"
 #include "VehicleLinkManager.h"
 #include "Autotune.h"
-#include "gica.h"
+#include "../Geosub/gica.h"
 
 #if defined(QGC_ENABLE_PAIRING)
 #include "PairingManager.h"
@@ -446,7 +446,6 @@ void QGCApplication::_initCommon()
     static const char* kQGCControllers  = "QGroundControl.Controllers";
     static const char* kQGCVehicle      = "QGroundControl.Vehicle";
     static const char* kQGCTemplates    = "QGroundControl.Templates";
-    static const char* kQGCGICA         = "QGroundControl.Geosub.GICA";
 
     QSettings settings;
 
@@ -466,7 +465,7 @@ void QGCApplication::_initCommon()
     qmlRegisterUncreatableType<VehicleLinkManager>      (kQGCVehicle,                       1, 0, "VehicleLinkManager",         kRefOnly);
     qmlRegisterUncreatableType<Autotune>                (kQGCVehicle,                       1, 0, "Autotune",                   kRefOnly);
     
-    qmlRegisterType<GICA>                               (kQGCGICA,                          1, 0, "GICA"                                );
+    qmlRegisterType<GICA>                               ("QGroundControl.Geosub",           1, 0, "GICA"                                );
 
     qmlRegisterUncreatableType<MissionController>       (kQGCControllers,                   1, 0, "MissionController",          kRefOnly);
     qmlRegisterUncreatableType<GeoFenceController>      (kQGCControllers,                   1, 0, "GeoFenceController",         kRefOnly);

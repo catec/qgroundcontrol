@@ -29,6 +29,8 @@ import QGroundControl.Palette       1.0
 import QGroundControl.ScreenTools   1.0
 import QGroundControl.Vehicle       1.0
 
+import QGroundControl.Geosub        1.0
+
 Item {
     id: _root
 

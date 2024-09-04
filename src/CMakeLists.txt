@@ -152,6 +152,8 @@ add_subdirectory(VehicleSetup)
 add_subdirectory(VideoManager)
 add_subdirectory(VideoReceiver)
 
+add_subdirectory(Geosub)
+
 target_link_libraries(qgc
 	PRIVATE
 		shp
@@ -188,6 +190,8 @@ target_link_libraries(qgc
 		VehicleSetup
 		VideoManager
 		z # zlib
+
+		Geosub
 )
 
 if(GST_FOUND)

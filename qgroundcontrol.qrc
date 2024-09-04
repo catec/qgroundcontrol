@@ -202,6 +202,8 @@
         <file alias="QGroundControl/FactControls/FactTextFieldSlider.qml">src/FactSystem/FactControls/FactTextFieldSlider.qml</file>
         <file alias="QGroundControl/FactControls/FactValueSlider.qml">src/FactSystem/FactControls/FactValueSlider.qml</file>
         <file alias="QGroundControl/FactControls/qmldir">src/QmlControls/QGroundControl/FactControls/qmldir</file>
+        <file alias="QGroundControl/Geosub/GICAWidget.qml">src/Geosub/GICAWidget.qml</file>
+        <file alias="QGroundControl/Geosub/qmldir">src/QmlControls/QGroundControl/Geosub/qmldir</file>
         <file alias="QGroundControl/FlightDisplay/FlightDisplayViewVideo.qml">src/FlightDisplay/FlightDisplayViewVideo.qml</file>
         <file alias="QGroundControl/FlightDisplay/FlightDisplayViewWidgets.qml">src/FlightDisplay/FlightDisplayViewWidgets.qml</file>
         <file alias="QGroundControl/FlightDisplay/FlyViewAirspaceIndicator.qml">src/FlightDisplay/FlyViewAirspaceIndicator.qml</file>
@@ -259,7 +261,6 @@
         <file alias="QGroundControl/FlightMap/ProximityRadarMapView.qml">src/FlightMap/MapItems/ProximityRadarMapView.qml</file>
         <file alias="QGroundControl/FlightMap/QGCArtificialHorizon.qml">src/FlightMap/Widgets/QGCArtificialHorizon.qml</file>
         <file alias="QGroundControl/FlightMap/QGCAttitudeHUD.qml">src/FlightMap/Widgets/QGCAttitudeHUD.qml</file>
-        <file alias="QGroundControl/FlightMap/GICAWidget.qml">src/FlightMap/Widgets/GICAWidget.qml</file>
         <file alias="QGroundControl/FlightMap/QGCAttitudeWidget.qml">src/FlightMap/Widgets/QGCAttitudeWidget.qml</file>
         <file alias="QGroundControl/FlightMap/QGCCompassWidget.qml">src/FlightMap/Widgets/QGCCompassWidget.qml</file>
         <file alias="QGroundControl/FlightMap/QGCPitchIndicator.qml">src/FlightMap/Widgets/QGCPitchIndicator.qml</file>

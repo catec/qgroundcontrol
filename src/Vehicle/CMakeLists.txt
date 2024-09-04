@@ -96,8 +96,6 @@ add_library(Vehicle
 	VehicleWindFactGroup.h
         VehicleHygrometerFactGroup.cc
         VehicleHygrometerFactGroup.h
-	gica.h
-	gica.cc
 
 	${EXTRA_SRC}
 )
