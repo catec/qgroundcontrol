@@ -22,3 +22,6 @@
 [submodule "libs/mavlink/include/mavlink/v2.0"]
 	path = libs/mavlink/include/mavlink/v2.0
 	url = https://github.com/catec/c_library_v2
+[submodule "libs/pahoMQTT"]
+	path = libs/pahoMQTT
+	url = https://github.com/eclipse/paho.mqtt.cpp.git
