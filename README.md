@@ -23,3 +23,13 @@ Key Links:
 * [Discussion/Support](https://docs.qgroundcontrol.com/en/Support/Support.html)
 * [Contributing](https://dev.qgroundcontrol.com/en/contribute/)
 * [License](https://github.com/mavlink/qgroundcontrol/blob/master/COPYING.md)
+
+# Modified libraries
+
+## MAVLink
+
+This version of QGroundControl is using a modified MAVLink library for a given project.
+
+## Paho MQTT CPP
+
+This version of QGroundControl implements Paho MQTT library for C++.

@@ -150,6 +150,38 @@ INCLUDEPATH += \
     libs/xz-embedded/linux/include/linux
 DEFINES += XZ_DEC_ANY_CHECK XZ_USE_CRC64
 
+#
+# [REQUIRED] Paho MQTT communication library for C++
+
+PAHO_MQTT_SCRIPT_PATH = $${PWD}/libs/pahoMQTT/build_paho_mqtt.sh
+PAHO_MQTT_SCRIPT_LOG_PATH = $${PWD}/libs/pahoMQTT/build_paho_mqtt.log
+
+# phony target makes it to be always build, despite of existing
+build_paho_mqtt.target = phony 
+
+build_paho_mqtt.commands = \
+    echo "Executing build_paho_mqtt.sh..." && \
+    $$PAHO_MQTT_SCRIPT_PATH $$PWD > $$PAHO_MQTT_SCRIPT_LOG_PATH 2>&1 && \
+    echo "Build_paho_mqtt.sh task completed. Check the log at $${PAHO_MQTT_SCRIPT_LOG_PATH}."
+
+QMAKE_EXTRA_TARGETS += build_paho_mqtt
+PRE_TARGETDEPS += $$build_paho_mqtt.target
+
+# Enable includes from code
+INCLUDEPATH += \
+	libs/pahoMQTT/paho_mqtt_cpp/src \
+	libs/pahoMQTT/paho_mqtt_cpp/src/mqtt \
+	libs/pahoMQTT/paho_mqtt_cpp/src/externals/paho-mqtt-c/src \
+    libs/pahoMQTT/paho_mqtt_cpp/src/externals/paho-mqtt-c/build
+
+# Link compiled Paho MQTT libraries
+LIBS += \
+    -L$$SOURCE_DIR/libs/pahoMQTT/paho_mqtt_cpp/build/src \
+    -L$$SOURCE_DIR/libs/pahoMQTT/paho_mqtt_cpp/src/externals/paho-mqtt-c/build/src \
+    -lpaho-mqttpp3 \
+    -lpaho-mqtt3as
+
+#
 # [REQUIRED] QMDNS Engine
 HEADERS+= \
     libs/qmdnsengine_export.h \
