@@ -75,6 +75,11 @@ LinuxBuild {
     QMAKE_POST_LINK += && mkdir -p $$DESTDIR/Qt/libs && mkdir -p $$DESTDIR/Qt/plugins
     QMAKE_RPATHDIR += $ORIGIN/Qt/libs
 
+    # This is how QGroundControl will find Paho MQTT libraries in runtime.
+    # Paho MQTT libraries would be previously generated and copied to /build/staging/pahoMQTT/libs
+    # so they can be found during both dynamic linkage and runtime finding, as mentioned above.
+    QMAKE_RPATHDIR += $ORIGIN/pahoMQTT/libs
+
     # QT_INSTALL_LIBS
     QT_LIB_LIST += \
         libQt5Charts.so.5 \
