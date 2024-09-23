@@ -743,12 +743,16 @@ HEADERS += \
     src/comm/TCPLink.h \
     src/comm/UDPLink.h \
     src/comm/UdpIODevice.h \
+    src/comm/MQTTLink.h \
+    src/comm/MQTTPublisher.h \
+    src/comm/MQTTParser.h \
     src/uas/UAS.h \
     src/uas/UASInterface.h \
     src/uas/UASMessageHandler.h \
     src/AnalyzeView/GeoTagController.h \
     src/AnalyzeView/ExifParser.h \
     src/Geosub/GICA.h \
+    src/Geosub/ADSB.h \
 
 contains (DEFINES, QGC_ENABLE_PAIRING) {
     HEADERS += \
@@ -995,12 +999,16 @@ SOURCES += \
     src/comm/TCPLink.cc \
     src/comm/UDPLink.cc \
     src/comm/UdpIODevice.cc \
+    src/comm/MQTTLink.cc \
+    src/comm/MQTTPublisher.cc \
+    src/comm/MQTTParser.cc \
     src/main.cc \
     src/uas/UAS.cc \
     src/uas/UASMessageHandler.cc \
     src/AnalyzeView/GeoTagController.cc \
     src/AnalyzeView/ExifParser.cc \
     src/Geosub/GICA.cc \
+    src/Geosub/ADSB.cc \
 
 contains (DEFINES, QGC_ENABLE_PAIRING) {
     SOURCES += \

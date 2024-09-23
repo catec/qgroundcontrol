@@ -15,7 +15,6 @@
 #include <Eigen/Eigen>
 
 #include "Vehicle.h"
-#include "../Geosub/GICA.h"
 #include "MAVLinkProtocol.h"
 #include "FirmwarePluginManager.h"
 #include "LinkManager.h"
@@ -60,6 +59,11 @@
 #if defined(QGC_AIRMAP_ENABLED)
 #include "AirspaceVehicleManager.h"
 #endif
+
+#include "../Geosub/GICA.h"
+#include "../Geosub/ADSB.h"
+
+#include "MQTTPublisher.h"
 
 QGC_LOGGING_CATEGORY(VehicleLog, "VehicleLog")
 
@@ -187,6 +191,9 @@ Vehicle::Vehicle(LinkInterface*             link,
     
     QGCCorePlugin* qgcCorePlugin = _toolbox->corePlugin();    
     connect(_mavlink, &MAVLinkProtocol::messageReceived,        qgcCorePlugin->gica(), &GICA::mavlinkMessageReceived);
+    connect(_mavlink, &MAVLinkProtocol::messageReceived,        qgcCorePlugin->adsb(), &ADSB::mavlinkMessageReceived);
+    
+    connect(qgcCorePlugin->adsb(), &ADSB::publishMQTTData, _toolbox->mqttLink()->mqttPublisher, &MQTTPublisher::publishMQTTData);
 
     connect(_mavlink, &MAVLinkProtocol::mavlinkMessageStatus,   this, &Vehicle::_mavlinkMessageStatus);
 
