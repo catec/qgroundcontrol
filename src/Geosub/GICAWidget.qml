@@ -113,7 +113,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearPosX.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearPosX.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -130,7 +130,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearPosY.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearPosY.toFixed(4) : " - - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -147,7 +147,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearPosZ.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearPosZ.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -240,7 +240,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearVelX.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearVelX.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -257,7 +257,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearVelY.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearVelY.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -274,7 +274,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearVelZ.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearVelZ.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -368,7 +368,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearAccX.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearAccX.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -385,7 +385,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearAccY.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearAccY.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -402,7 +402,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.linearAccZ.toFixed(4)
+                                text: gica.connectionAvailable ? gica.linearAccZ.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -510,7 +510,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.angularPosRoll.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularPosRoll.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -527,7 +527,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.angularPosPitch.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularPosPitch.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -543,7 +543,7 @@ ColumnLayout {
                             height: dataDisplayHeight
                             
                             Text {
-                                text: gica.angularPosYaw.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularPosYaw.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -636,7 +636,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.angularVelRoll.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularVelRoll.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -653,7 +653,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.angularVelPitch.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularVelPitch.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -670,7 +670,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.angularVelYaw.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularVelYaw.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -763,7 +763,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.angularAccRoll.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularAccRoll.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -780,7 +780,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.angularAccPitch.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularAccPitch.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -797,7 +797,7 @@ ColumnLayout {
                             radius: 5
                             
                             Text {
-                                text: gica.angularAccYaw.toFixed(4)
+                                text: gica.connectionAvailable ? gica.angularAccYaw.toFixed(4) : "- - -"
                                 anchors.leftMargin: 10
                                 anchors.left: parent.left
                                 anchors.verticalCenter: parent.verticalCenter
@@ -896,7 +896,7 @@ ColumnLayout {
                         radius: 5
                         
                         Text {
-                            text: gica.miscIntegrity.toFixed(4)
+                            text: gica.connectionAvailable ? gica.miscIntegrity.toFixed(4) : "- - -"
                             anchors.leftMargin: 10
                             anchors.left: parent.left
                             anchors.verticalCenter: parent.verticalCenter
@@ -913,7 +913,7 @@ ColumnLayout {
                         radius: 5
                         
                         Text {
-                            text: gica.miscNumSat
+                            text: gica.connectionAvailable ? gica.miscNumSat : "- - -"
                             anchors.leftMargin: 10
                             anchors.left: parent.left
                             anchors.verticalCenter: parent.verticalCenter
@@ -925,7 +925,7 @@ ColumnLayout {
                         width: dataDisplayWidth
                         height: dataDisplayHeight
 
-                        color: gica.miscSbasCorrection ? qgcPal.colorGreen : qgcPal.colorRed
+                        color: gica.connectionAvailable ? (gica.miscSbasCorrection ? qgcPal.colorGreen : qgcPal.colorRed) : qgcPal.colorGrey
                         
                         // border.color: "black"
                         border.width: 1

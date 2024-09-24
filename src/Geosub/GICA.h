@@ -10,14 +10,16 @@
 #pragma once
 
 #include <QObject>
+#include <QTimer>
 
 #include "QGCMAVLink.h"
-
 #include "LinkManager.h"
 
 class GICA : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(qreal    connectionAvailable   READ    connectionAvailable   NOTIFY    connectionAvailableChanged)
 
     Q_PROPERTY(qreal    linearPosX            READ    linearPosX            NOTIFY    linearPosXChanged)
     Q_PROPERTY(qreal    linearPosY            READ    linearPosY            NOTIFY    linearPosYChanged)
@@ -47,6 +49,8 @@ public:
 
     explicit GICA(QObject* parent = nullptr);
 
+    qreal    connectionAvailable   () const { return _connectionAvailable; }
+
     qreal    linearPosX            () const { return static_cast<qreal>(_linearPosX); }
     qreal    linearPosY            () const { return static_cast<qreal>(_linearPosY); }
     qreal    linearPosZ            () const { return static_cast<qreal>(_linearPosZ); }
@@ -73,6 +77,7 @@ public:
 
 signals:
 
+    void connectionAvailableChanged ();
     void linearPosXChanged          ();
     void linearPosYChanged          ();
     void linearPosZChanged          ();
@@ -101,7 +106,12 @@ public slots:
 
     void mavlinkMessageReceived(LinkInterface* link, mavlink_message_t message);
 
+    void connectionLost();
+    void connectionAlive();
+    
 private:
+
+    QTimer _messageTimeout;
 
     void setLinearPosX            (float value);
     void setLinearPosY            (float value);
@@ -126,6 +136,8 @@ private:
     void setMiscIntegrity         (float value);
     void setMiscNumSat            (int value);
     void setMiscSbasCorrection    (bool value);
+
+    float    _connectionAvailable;
 
     float    _linearPosX;
     float    _linearPosY;

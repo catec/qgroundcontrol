@@ -2,6 +2,7 @@
 
 GICA::GICA(QObject* parent): 
     QObject(parent),
+    _connectionAvailable(false),
     _linearPosX(0.0f),
     _linearPosY(0.0f),
     _linearPosZ(0.0f),
@@ -24,6 +25,9 @@ GICA::GICA(QObject* parent):
     _miscNumSat(0),
     _miscSbasCorrection(false)
 {
+    _messageTimeout.setInterval(1000); // 1s
+    _messageTimeout.setSingleShot(true);
+    connect(&_messageTimeout, &QTimer::timeout, this, &GICA::connectionLost);
 }
 
 void GICA::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_message_t message)
@@ -45,6 +49,8 @@ void GICA::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
             if (_linearAccY != linear_values.y_acc) setLinearAccY(linear_values.y_acc);
             if (_linearAccZ != linear_values.z_acc) setLinearAccZ(linear_values.z_acc);
 
+            connectionAlive();
+
             break;
 
         case MAVLINK_MSG_ID_GEOSUB_ANGULAR_VALUES:
@@ -61,6 +67,8 @@ void GICA::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
             if (_angularAccRoll  != angular_values.roll_acc)  setAngularAccRoll(angular_values.roll_acc);
             if (_angularAccPitch != angular_values.pitch_acc) setAngularAccPitch(angular_values.pitch_acc);
             if (_angularAccYaw   != angular_values.yaw_acc)   setAngularAccYaw(angular_values.yaw_acc);
+            
+            connectionAlive();
 
             break;
 
@@ -72,11 +80,33 @@ void GICA::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
             if (_miscIntegrity      != misc_values.integrity)       setMiscIntegrity(misc_values.integrity);
             if (_miscNumSat         != misc_values.num_sat)         setMiscNumSat(misc_values.num_sat);
             if (_miscSbasCorrection != misc_values.sbas_correction) setMiscSbasCorrection(misc_values.sbas_correction);
+
+            connectionAlive();
             
             break;
 
         default: 
             break;
+    }
+}
+
+void GICA::connectionAlive()
+{
+    _messageTimeout.start(); // restarts the qtimer timeout
+
+    if (!_connectionAvailable)
+    {
+        _connectionAvailable = true;
+        emit connectionAvailableChanged();
+    }
+}
+
+void GICA::connectionLost()
+{
+    if (_connectionAvailable)
+    {
+        _connectionAvailable = false;
+        emit connectionAvailableChanged();
     }
 }
 
