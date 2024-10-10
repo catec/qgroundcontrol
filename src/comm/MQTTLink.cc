@@ -17,14 +17,14 @@
 
 MQTTLink::MQTTLink(QGCApplication* app, QGCToolbox* toolbox) :
     _serverProtocol("tcp"),
-    _serverIp("127.0.0.1"), // todo Input this server info using an UI?
-    _serverPort("15000"), // todo Ask port target
-    _clientId("qgc_mqtt_client"), // todo give automatic client id's
+    _serverIp("backbone.pildo.com"),
+    _serverPort("1883"),
+    _clientId("qgc_mqtt_client"),
     _serverAddress(_serverProtocol + "://" + _serverIp + ":" + _serverPort),
     _app(app),
     _toolbox(toolbox)
 {
-    mqttPublisher = new MQTTPublisher();
+    mqttPublisher = new MQTTPublisher(this);
     
     mqttClient = std::make_unique<mqtt::async_client>(_serverAddress, _clientId);
     startMQTTClient();

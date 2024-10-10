@@ -29,7 +29,7 @@ void MQTTPublisher::publishMQTTData(const std::string& topic, const std::string&
     try 
     {
         mqtt::message_ptr msg = mqtt::make_message(topic, payload);
-        _mqttLink->mqttClient->publish(msg)->wait();
+        _mqttLink->mqttClient->publish(msg);
         // std::cout << "[MQTT INFO] Published message to topic: " << topic << std::endl;
     } 
     catch (const mqtt::exception& exc) 
