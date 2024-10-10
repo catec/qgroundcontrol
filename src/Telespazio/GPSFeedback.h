@@ -10,34 +10,32 @@
 #pragma once
 
 #include <QObject>
+#include <QGeoCoordinate>
 // #include <QTimer>
 
 #include "QGCMAVLink.h"
 #include "LinkManager.h"
 
-class ADSBMapFeedback : public QObject
+class GPSFeedback : public QObject
 {
     Q_OBJECT
 
     // Q_PROPERTY(qreal    connectionAvailable   READ    connectionAvailable   NOTIFY    connectionAvailableChanged)
 
-    Q_PROPERTY(qreal    latitude            READ    latitude            NOTIFY    latitudeChanged)
-    Q_PROPERTY(qreal    longitude           READ    longitude           NOTIFY    longitudeChanged)
+    Q_PROPERTY(QGeoCoordinate       coordinate                  READ coordinate                NOTIFY coordinateChanged)
 
 public:
 
-    explicit ADSBMapFeedback(QObject* parent = nullptr);
+    explicit GPSFeedback(QObject* parent = nullptr);
 
     // qreal    connectionAvailable   () const { return _connectionAvailable; }
 
-    qreal    latitude            () const { return static_cast<qreal>(_latitude); }
-    qreal    longitude           () const { return static_cast<qreal>(_longitude); }
+    QGeoCoordinate    coordinate            () const { return _coordinate; }
 
 signals:
 
     // void connectionAvailableChanged ();
-    void latitudeChanged          ();
-    void longitudeChanged         ();
+    void coordinateChanged          ();
 
 public slots:
 
@@ -50,12 +48,10 @@ private:
 
     // QTimer _messageTimeout;
 
-    void setLatitude            (float value);
-    void setLongitude           (float value);
+    void setCoordinate          (QGeoCoordinate value);
 
     // float    _connectionAvailable;
 
-    float    _latitude;
-    float    _longitude;
+    QGeoCoordinate    _coordinate;
 
 };

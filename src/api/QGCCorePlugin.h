@@ -18,6 +18,7 @@
 #include <QVariantList>
 
 #include "../Geosub/GICA.h"
+#include "../Telespazio/GPSFeedback.h"
 
 /// @file
 /// @brief Core Plugin Interface for QGroundControl
@@ -200,6 +201,7 @@ public:
     static const int firstRunPromptIdsFirstCustomId = 10000;
 
     GICA* gica() const { return _gica; }
+    GPSFeedback* gpsFeedback() const { return _gpsFeedback; }
 
 signals:
     void settingsPagesChanged       ();
@@ -219,4 +221,5 @@ protected:
 private:
     QGCCorePlugin_p*    _p;
     GICA*               _gica;
+    GPSFeedback*        _gpsFeedback;
 };

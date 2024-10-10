@@ -4,6 +4,6 @@ add_custom_target(TelespazioWidgetsQml
 )
 
 add_library(Telespazio
-	ADSBMapFeedback.h
-	ADSBMapFeedback.cc
+	GPSFeedback.h
+	GPSFeedback.cc
 )

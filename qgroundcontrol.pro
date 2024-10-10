@@ -749,6 +749,7 @@ HEADERS += \
     src/AnalyzeView/GeoTagController.h \
     src/AnalyzeView/ExifParser.h \
     src/Geosub/GICA.h \
+    src/Telespazio/GPSFeedback.h \
 
 contains (DEFINES, QGC_ENABLE_PAIRING) {
     HEADERS += \
@@ -1001,6 +1002,7 @@ SOURCES += \
     src/AnalyzeView/GeoTagController.cc \
     src/AnalyzeView/ExifParser.cc \
     src/Geosub/GICA.cc \
+    src/Telespazio/GPSFeedback.cc \
 
 contains (DEFINES, QGC_ENABLE_PAIRING) {
     SOURCES += \

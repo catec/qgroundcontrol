@@ -285,15 +285,11 @@ FlightMap {
             z:              QGroundControl.zOrderVehicles
         }
     }
-    // Add Telespazio's ADSB feedback to the map
+    // Add Telespazio's GPS feedback to the map
     MapItemView {
-        model: QGroundControl.adsbVehicleManager.adsbVehicles
+        model: gpsFeedback
         delegate: VehicleMapItem {
-            coordinate:     object.coordinate
-            altitude:       object.altitude
-            callsign:       object.callsign
-            heading:        object.heading
-            alert:          object.alert
+            coordinate:     gpsFeedback.coordinate
             map:            _root
             z:              QGroundControl.zOrderVehicles
         }

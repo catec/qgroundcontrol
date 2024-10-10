@@ -16,6 +16,7 @@
 
 #include "Vehicle.h"
 #include "../Geosub/GICA.h"
+#include "../Telespazio/GPSFeedback.h"
 #include "MAVLinkProtocol.h"
 #include "FirmwarePluginManager.h"
 #include "LinkManager.h"
@@ -187,6 +188,7 @@ Vehicle::Vehicle(LinkInterface*             link,
     
     QGCCorePlugin* qgcCorePlugin = _toolbox->corePlugin();    
     connect(_mavlink, &MAVLinkProtocol::messageReceived,        qgcCorePlugin->gica(), &GICA::mavlinkMessageReceived);
+    connect(_mavlink, &MAVLinkProtocol::messageReceived,        qgcCorePlugin->gpsFeedback(), &GPSFeedback::mavlinkMessageReceived);
 
     connect(_mavlink, &MAVLinkProtocol::mavlinkMessageStatus,   this, &Vehicle::_mavlinkMessageStatus);
 
