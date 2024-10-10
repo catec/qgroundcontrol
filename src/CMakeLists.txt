@@ -153,6 +153,7 @@ add_subdirectory(VideoManager)
 add_subdirectory(VideoReceiver)
 
 add_subdirectory(Geosub)
+add_subdirectory(Telespazio)
 
 target_link_libraries(qgc
 	PRIVATE

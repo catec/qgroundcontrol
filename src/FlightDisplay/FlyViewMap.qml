@@ -285,6 +285,19 @@ FlightMap {
             z:              QGroundControl.zOrderVehicles
         }
     }
+    // Add Telespazio's ADSB feedback to the map
+    MapItemView {
+        model: QGroundControl.adsbVehicleManager.adsbVehicles
+        delegate: VehicleMapItem {
+            coordinate:     object.coordinate
+            altitude:       object.altitude
+            callsign:       object.callsign
+            heading:        object.heading
+            alert:          object.alert
+            map:            _root
+            z:              QGroundControl.zOrderVehicles
+        }
+    }
 
     // Add the items associated with each vehicles flight plan to the map
     Repeater {
