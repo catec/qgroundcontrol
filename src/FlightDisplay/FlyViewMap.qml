@@ -292,6 +292,7 @@ FlightMap {
             coordinate:     gpsFeedback.coordinate
             map:            _root
             z:              QGroundControl.zOrderVehicles
+            telespazio:     true
         }
     }
 

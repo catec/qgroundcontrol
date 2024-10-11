@@ -26,7 +26,7 @@ MapQuickItem {
     property double heading:        vehicle ? vehicle.heading.value : Number.NaN    ///< Vehicle heading, NAN for none
     property real   size:           _adsbVehicle ? _adsbSize : _uavSize             /// Size for icon
     property bool   alert:          false                                           /// Collision alert
-
+    property bool   telespazio:     false
     anchorPoint.x:  vehicleItem.width  / 2
     anchorPoint.y:  vehicleItem.height / 2
     visible:        coordinate.isValid
@@ -63,7 +63,7 @@ MapQuickItem {
         }
         Image {
             id:                 vehicleIcon
-            source:             _adsbVehicle ? (alert ? "/qmlimages/AlertAircraft.svg" : "/qmlimages/AwarenessAircraft.svg") : vehicle.vehicleImageOpaque
+            source:             telespazio ? "/qmlimages/vehicleArrowOpaqueBlue.svg"  : (_adsbVehicle ? (alert ? "/qmlimages/AlertAircraft.svg" : "/qmlimages/AwarenessAircraft.svg") : vehicle.vehicleImageOpaque)
             mipmap:             true
             width:              size
             sourceSize.width:   size
