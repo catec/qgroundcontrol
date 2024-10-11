@@ -111,6 +111,9 @@ QGCCorePlugin::~QGCCorePlugin()
     if(_gica) {
         delete _gica;
     }
+    if(_adsb) {
+        delete _adsb;
+    }
 }
 
 QGCCorePlugin::QGCCorePlugin(QGCApplication *app, QGCToolbox* toolbox)
@@ -121,6 +124,7 @@ QGCCorePlugin::QGCCorePlugin(QGCApplication *app, QGCToolbox* toolbox)
     QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
     _p = new QGCCorePlugin_p;
     _gica = new GICA;
+    _adsb = new ADSB;
 }
 
 void QGCCorePlugin::setToolbox(QGCToolbox *toolbox)

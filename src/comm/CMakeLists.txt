@@ -38,6 +38,12 @@ add_library(comm
 	UdpIODevice.h
 	UDPLink.cc
 	UDPLink.h
+	MQTTLink.cc
+	MQTTLink.h
+	MQTTPublisher.cc
+	MQTTPublisher.h
+	MQTTParser.cc
+	MQTTParser.h
 
 	${EXTRA_SRC}
 )

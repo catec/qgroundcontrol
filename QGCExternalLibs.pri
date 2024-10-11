@@ -123,6 +123,10 @@ SOURCES += \
     libs/shapelib/safileio.c
 
 #
+# [REQUIRED] nlohmann json library
+INCLUDEPATH += libs/nlohmann
+
+#
 # [REQUIRED] zlib library
 WindowsBuild {
     INCLUDEPATH +=  $$SOURCE_DIR/libs/zlib/windows/include
@@ -176,10 +180,9 @@ INCLUDEPATH += \
 
 # Link compiled Paho MQTT libraries
 LIBS += \
-    -L$$SOURCE_DIR/libs/pahoMQTT/paho_mqtt_cpp/build/src \
-    -L$$SOURCE_DIR/libs/pahoMQTT/paho_mqtt_cpp/src/externals/paho-mqtt-c/build/src \
+    -L$$OUT_PWD/staging/pahoMQTT/libs \
     -lpaho-mqttpp3 \
-    -lpaho-mqtt3as
+    -lpaho-mqtt3a
 
 #
 # [REQUIRED] QMDNS Engine

@@ -46,6 +46,8 @@
 #include "MicrohardManager.h"
 #endif
 
+#include "MQTTLink.h"
+
 #if defined(QGC_CUSTOM_BUILD)
 #include CUSTOMHEADER
 #endif
@@ -66,6 +68,7 @@ QGCToolbox::QGCToolbox(QGCApplication* app)
     _joystickManager        = new JoystickManager           (app, this);
     _linkManager            = new LinkManager               (app, this);
     _mavlinkProtocol        = new MAVLinkProtocol           (app, this);
+    _mqttLink               = new MQTTLink                  (app, this);
     _missionCommandTree     = new MissionCommandTree        (app, this);
     _multiVehicleManager    = new MultiVehicleManager       (app, this);
     _mapEngineManager       = new QGCMapEngineManager       (app, this);
@@ -110,6 +113,7 @@ void QGCToolbox::setChildToolboxes(void)
     _joystickManager->setToolbox(this);
     _linkManager->setToolbox(this);
     _mavlinkProtocol->setToolbox(this);
+    // _mqttLink->setToolbox(this);
     _missionCommandTree->setToolbox(this);
     _multiVehicleManager->setToolbox(this);
     _mapEngineManager->setToolbox(this);

@@ -6,4 +6,6 @@ add_custom_target(GeosubWidgetsQml
 add_library(Geosub
 	GICA.h
 	GICA.cc
+	ADSB.h
+	ADSB.cc
 )

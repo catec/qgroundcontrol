@@ -7,6 +7,12 @@
  *
  ****************************************************************************/
 
+/** 
+ * @file
+ * @brief GICA widget (backend).
+ * @author Alejandro Pariente Migoya <alex_pariente@hotmail.es>
+*/
+
 #pragma once
 
 #include <QObject>
