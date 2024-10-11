@@ -63,7 +63,7 @@ MapQuickItem {
         }
         Image {
             id:                 vehicleIcon
-            source:             telespazio ? "/qmlimages/vehicleArrowOpaqueBlue.svg"  : (_adsbVehicle ? (alert ? "/qmlimages/AlertAircraft.svg" : "/qmlimages/AwarenessAircraft.svg") : vehicle.vehicleImageOpaque)
+            source:             telespazio ? "/qmlimages/drone-spot-gps-feedback.svg"  : (_adsbVehicle ? (alert ? "/qmlimages/AlertAircraft.svg" : "/qmlimages/AwarenessAircraft.svg") : vehicle.vehicleImageOpaque)
             mipmap:             true
             width:              size
             sourceSize.width:   size
