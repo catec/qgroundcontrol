@@ -36,4 +36,8 @@ public slots:
 
     void mavlinkMessageReceived(LinkInterface* link, mavlink_message_t message);
 
+private:
+
+    const std::string _adsbTopic;
+
 };

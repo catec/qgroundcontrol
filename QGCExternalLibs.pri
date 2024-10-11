@@ -123,6 +123,10 @@ SOURCES += \
     libs/shapelib/safileio.c
 
 #
+# [REQUIRED] nlohmann json library
+INCLUDEPATH += libs/nlohmann
+
+#
 # [REQUIRED] zlib library
 WindowsBuild {
     INCLUDEPATH +=  $$SOURCE_DIR/libs/zlib/windows/include
