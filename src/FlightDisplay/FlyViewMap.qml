@@ -285,6 +285,16 @@ FlightMap {
             z:              QGroundControl.zOrderVehicles
         }
     }
+    // Add Telespazio's GPS feedback to the map
+    MapItemView {
+        model: gpsFeedback
+        delegate: VehicleMapItem {
+            coordinate:     gpsFeedback.coordinate
+            map:            _root
+            z:              QGroundControl.zOrderVehicles
+            telespazio:     true
+        }
+    }
 
     // Add the items associated with each vehicles flight plan to the map
     Repeater {
