@@ -40,6 +40,7 @@ ColumnLayout {
     // Linear content
     RowLayout {
         spacing: 15
+        anchors.horizontalCenter: parent.horizontalCenter
         
         // Position
         Rectangle { 
@@ -297,6 +298,8 @@ ColumnLayout {
 
         // Acceleration
         Rectangle {
+            visible: false
+
             radius: 5
             color: qgcPal.windowShade
             width: 180
