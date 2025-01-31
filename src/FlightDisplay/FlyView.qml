@@ -187,7 +187,7 @@ Item {
         minimumHeight: height
 
         // Set the window to always stay on top
-        flags: Qt.Window | Qt.WindowStaysOnTopHint
+        // flags: Qt.Window | Qt.WindowStaysOnTopHint
 
         // Instanciate the qml interface
         GICAWidget {
