@@ -8,4 +8,6 @@ add_library(Geosub
 	GICA.cc
 	ADSB.h
 	ADSB.cc
+	Primecor.h
+	Primecor.cc
 )

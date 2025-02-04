@@ -19,6 +19,7 @@
 
 #include "../Geosub/GICA.h"
 #include "../Geosub/ADSB.h"
+#include "../Geosub/Primecor.h"
 #include "../Telespazio/GPSFeedback.h"
 
 /// @file
@@ -203,6 +204,7 @@ public:
 
     GICA *gica() const { return _gica; }
     ADSB *adsb() const { return _adsb; }
+    Primecor *primecor() const { return _primecor; }
     GPSFeedback *gpsFeedback() const { return _gpsFeedback; }
 
 signals:
@@ -224,5 +226,6 @@ private:
     QGCCorePlugin_p *_p;
     GICA *_gica;
     ADSB *_adsb;
+    Primecor *_primecor;
     GPSFeedback *_gpsFeedback;
 };

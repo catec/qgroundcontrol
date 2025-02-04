@@ -57,7 +57,8 @@ public:
     JoystickManager*            joystickManager         () { return _joystickManager; }
     LinkManager*                linkManager             () { return _linkManager; }
     MAVLinkProtocol*            mavlinkProtocol         () { return _mavlinkProtocol; }
-    MQTTLink*                   mqttLink                () { return _mqttLink; }
+    MQTTLink*                   mqttLinkADSB            () { return _mqttLinkADSB; }
+    MQTTLink*                   mqttLinkPrimecor        () { return _mqttLinkPrimecor; }
     MissionCommandTree*         missionCommandTree      () { return _missionCommandTree; }
     MultiVehicleManager*        multiVehicleManager     () { return _multiVehicleManager; }
     QGCMapEngineManager*        mapEngineManager        () { return _mapEngineManager; }
@@ -99,7 +100,8 @@ private:
     JoystickManager*            _joystickManager        = nullptr;
     LinkManager*                _linkManager            = nullptr;
     MAVLinkProtocol*            _mavlinkProtocol        = nullptr;
-    MQTTLink*                   _mqttLink               = nullptr;
+    MQTTLink*                   _mqttLinkADSB           = nullptr;
+    MQTTLink*                   _mqttLinkPrimecor       = nullptr;
     MissionCommandTree*         _missionCommandTree     = nullptr;
     MultiVehicleManager*        _multiVehicleManager    = nullptr;
     QGCMapEngineManager*        _mapEngineManager       = nullptr;

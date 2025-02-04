@@ -9,32 +9,35 @@
 
 /** 
  * @file
- * @brief Publisher class for MQTT communications.
+ * @brief External Primecor data MAVLink receiver.
  * @author Alejandro Pariente Migoya <alex_pariente@hotmail.es>
 */
 
 #pragma once
 
 #include <QObject>
-#include <mqtt/async_client.h>
 
-#include "MQTTLink.h"
+#include "QGCMAVLink.h"
+#include "LinkManager.h"
 
-class MQTTPublisher : public QObject
+class Primecor : public QObject
 {
     Q_OBJECT
 
 public:
 
-    MQTTPublisher(MQTTLink* = nullptr);
-    virtual ~MQTTPublisher();
+    Primecor();
 
-public slots:
+signals:
 
     void publishMQTTData(const std::string& topic, const std::string& payload);
 
+public slots:
+
+    void mavlinkMessageReceived(LinkInterface* link, mavlink_message_t message);
+
 private:
 
-    MQTTLink* _mqttLink = nullptr;
+    const std::string _primecorTopic;
 
 };

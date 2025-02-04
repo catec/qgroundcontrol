@@ -117,6 +117,10 @@ QGCCorePlugin::~QGCCorePlugin()
     {
         delete _adsb;
     }
+    if (_primecor)
+    {
+        delete _primecor;
+    }
     if (_gpsFeedback)
     {
         delete _gpsFeedback;
@@ -130,6 +134,7 @@ QGCCorePlugin::QGCCorePlugin(QGCApplication *app, QGCToolbox *toolbox)
     _p = new QGCCorePlugin_p;
     _gica = new GICA;
     _adsb = new ADSB;
+    _primecor = new Primecor;
     _gpsFeedback = new GPSFeedback;
 }
 

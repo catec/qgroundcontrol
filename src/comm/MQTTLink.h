@@ -33,8 +33,12 @@ class MQTTLink : public QObject
 
 public:
 
-    MQTTLink(QGCApplication* app, QGCToolbox* toolbox);
-    virtual ~MQTTLink(); // todo check how to destroy this object
+    MQTTLink(QGCApplication* app, QGCToolbox* toolbox,
+        std::string serverProtocol, 
+        std::string serverIp, 
+        std::string serverPort,
+        std::string clientId);
+    virtual ~MQTTLink();
 
     void startMQTTClient();
     void stopMQTTClient();

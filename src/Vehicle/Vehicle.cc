@@ -139,14 +139,18 @@ Vehicle::Vehicle(LinkInterface *link,
 
     connect(_mavlink, &MAVLinkProtocol::messageReceived, this, &Vehicle::_mavlinkMessageReceived);
 
+    // Connect incomming MAVLink messages with different custom widgets
     QGCCorePlugin *qgcCorePlugin = _toolbox->corePlugin();
-    connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->gica(), &GICA::mavlinkMessageReceived);
-    connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->adsb(), &ADSB::mavlinkMessageReceived);
-
-    connect(qgcCorePlugin->adsb(), &ADSB::publishMQTTData, _toolbox->mqttLink()->mqttPublisher, &MQTTPublisher::publishMQTTData);
+    connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->gica(),        &GICA::mavlinkMessageReceived);
+    connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->adsb(),        &ADSB::mavlinkMessageReceived);
+    connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->primecor(),    &Primecor::mavlinkMessageReceived);
     connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->gpsFeedback(), &GPSFeedback::mavlinkMessageReceived);
 
     connect(_mavlink, &MAVLinkProtocol::mavlinkMessageStatus, this, &Vehicle::_mavlinkMessageStatus);
+
+    // Connect MQTT custom backends with the main MQTT publisher class
+    connect(qgcCorePlugin->adsb(),     &ADSB::publishMQTTData,     _toolbox->mqttLinkADSB()->mqttPublisher,     &MQTTPublisher::publishMQTTData);
+    connect(qgcCorePlugin->primecor(), &Primecor::publishMQTTData, _toolbox->mqttLinkPrimecor()->mqttPublisher, &MQTTPublisher::publishMQTTData);
 
     connect(this, &Vehicle::flightModeChanged, this, &Vehicle::_handleFlightModeChanged);
     connect(this, &Vehicle::armedChanged, this, &Vehicle::_announceArmedChanged);

@@ -15,11 +15,15 @@
 
 #include "MQTTLink.h"
 
-MQTTLink::MQTTLink(QGCApplication* app, QGCToolbox* toolbox) :
-    _serverProtocol("tcp"),
-    _serverIp("backbone.pildo.com"),
-    _serverPort("1883"),
-    _clientId("qgc_mqtt_client"),
+MQTTLink::MQTTLink(QGCApplication* app, QGCToolbox* toolbox, 
+    std::string serverProtocol, 
+    std::string serverIp, 
+    std::string serverPort,
+    std::string clientId) :
+    _serverProtocol(serverProtocol),
+    _serverIp(serverIp),
+    _serverPort(serverPort),
+    _clientId(clientId),
     _serverAddress(_serverProtocol + "://" + _serverIp + ":" + _serverPort),
     _app(app),
     _toolbox(toolbox)

@@ -68,7 +68,11 @@ QGCToolbox::QGCToolbox(QGCApplication* app)
     _joystickManager        = new JoystickManager           (app, this);
     _linkManager            = new LinkManager               (app, this);
     _mavlinkProtocol        = new MAVLinkProtocol           (app, this);
-    _mqttLink               = new MQTTLink                  (app, this);
+
+    // MQTT custom links
+    _mqttLinkADSB           = new MQTTLink                  (app, this, "tcp", "backbone.pildo.com", "1883", "qgc_mqtt_client_adsb");
+    _mqttLinkPrimecor       = new MQTTLink                  (app, this, "tcp", "mqtt.dd.primecorsys.com", "5550", "qgc_mqtt_client_primecor");
+
     _missionCommandTree     = new MissionCommandTree        (app, this);
     _multiVehicleManager    = new MultiVehicleManager       (app, this);
     _mapEngineManager       = new QGCMapEngineManager       (app, this);

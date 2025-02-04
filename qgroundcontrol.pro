@@ -753,6 +753,7 @@ HEADERS += \
     src/AnalyzeView/ExifParser.h \
     src/Geosub/GICA.h \
     src/Geosub/ADSB.h \
+    src/Geosub/Primecor.h \
     src/Telespazio/GPSFeedback.h \
 
 contains (DEFINES, QGC_ENABLE_PAIRING) {
@@ -1010,6 +1011,7 @@ SOURCES += \
     src/AnalyzeView/ExifParser.cc \
     src/Geosub/GICA.cc \
     src/Geosub/ADSB.cc \
+    src/Geosub/Primecor.cc \
     src/Telespazio/GPSFeedback.cc \
 
 contains (DEFINES, QGC_ENABLE_PAIRING) {
