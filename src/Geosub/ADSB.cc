@@ -107,6 +107,29 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
             break;
         }
 
+        case MAVLINK_MSG_ID_GEOSUB_PILDO_TELEMETRY:
+        {
+            mavlink_geosub_pildo_telemetry_t pildo_telemetry;
+            mavlink_msg_geosub_pildo_telemetry_decode(&message, &pildo_telemetry);
+
+            // nlohmann::json j;
+            // j["identification"] = pildo_telemetry.ICAO_address;
+            // j["timestamp"]    = pildo_telemetry.integrity;
+            // j["latitude"]  = pildo_telemetry.stall_speed;
+            // j["longitude"]   = pildo_telemetry.capability;
+            // j["baroLevel"]      = pildo_telemetry.emitter;
+            // j["height"]   = pildo_telemetry.alw_encode;
+            // j["groundSpeedWE"] = pildo_telemetry.gps_lat_offs;
+            // j["groundSpeedSN"] = pildo_telemetry.gps_lon_offs;
+            // j["verticalSpeed"] = pildo_telemetry.gps_lon_offs;
+            
+            // const std::string payload = j.dump();
+
+            // emit publishMQTTData("ID/state", payload);
+            
+            break;
+        }
+
         default: 
             break;
     }
