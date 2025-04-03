@@ -1,3 +1,4 @@
 Module QGroundControl.Geosub
 
-GICAWidget 1.0 GICAWidget.qml
+GICAWidget         1.0 GICAWidget.qml
+PRIMECORWidget     1.0 PRIMECORWidget.qml

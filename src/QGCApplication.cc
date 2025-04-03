@@ -466,6 +466,7 @@ void QGCApplication::_initCommon()
     qmlRegisterUncreatableType<Autotune>                (kQGCVehicle,                       1, 0, "Autotune",                   kRefOnly);
     
     qmlRegisterType<GICA>                               ("QGroundControl.Geosub",           1, 0, "GICA"                                );
+    // qmlRegisterType<PRIMECOR>                           ("QGroundControl.Geosub",           1, 0, "PRIMECOR"                            );
 
     qmlRegisterUncreatableType<MissionController>       (kQGCControllers,                   1, 0, "MissionController",          kRefOnly);
     qmlRegisterUncreatableType<GeoFenceController>      (kQGCControllers,                   1, 0, "GeoFenceController",         kRefOnly);

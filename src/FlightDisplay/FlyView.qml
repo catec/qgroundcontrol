@@ -190,8 +190,41 @@ Item {
         // flags: Qt.Window | Qt.WindowStaysOnTopHint
 
         // Instanciate the qml interface
+
         GICAWidget {
             id: gicaWidgetInstance
+        }
+    }
+
+    // PRIMECOR widget
+    Window {
+        width: 600
+        height: 850
+        
+        title: "PRIMECOR"
+        
+        visible: true
+
+        color: qgcPal.window
+
+        // Make the window not closable
+        onClosing: {
+            close.accepted = false;
+        }
+
+        // Prevent window resizing
+        maximumWidth: width
+        minimumWidth: width
+        maximumHeight: height
+        minimumHeight: height
+
+        // Set the window to always stay on top
+        // flags: Qt.Window | Qt.WindowStaysOnTopHint
+
+        // Instanciate the qml interface
+
+        PRIMECORWidget {
+            id: primecorWidgetInstance
         }
     }
 }

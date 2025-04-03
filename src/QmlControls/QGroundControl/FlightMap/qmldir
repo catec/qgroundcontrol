@@ -18,6 +18,7 @@ QGCAttitudeWidget           1.0 QGCAttitudeWidget.qml
 QGCCompassWidget            1.0 QGCCompassWidget.qml
 QGCPitchIndicator           1.0 QGCPitchIndicator.qml
 GICAWidget                  1.0 GICAWidget.qml
+PRIMECORWidget              1.0 PRIMECORWidget.qml
 
 # Map items
 CameraTriggerIndicator      1.0 CameraTriggerIndicator.qml
