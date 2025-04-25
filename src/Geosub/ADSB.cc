@@ -19,7 +19,9 @@
 #include <json.hpp>
 
 ADSB::ADSB():
-    _adsbTopic("gcs_qgc/ADSB")
+    _adsbInTopic("gcs_qgc/ADSB"),
+    _staticTopic("gcs_qgc/static"),
+    _dynamicTopic("gcs_qgc/synamic")
 {
 }
 
@@ -49,7 +51,7 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
 
             const std::string payload = j.dump();
 
-            emit publishMQTTData(_adsbTopic, payload);
+            emit publishMQTTData(_adsbInTopic, payload);
 
             break;
         }
@@ -59,28 +61,28 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
             mavlink_geosub_adsb_out_dynamic_t adsb_out_dynamic;
             mavlink_msg_geosub_adsb_out_dynamic_decode(&message, &adsb_out_dynamic);
 
-            // nlohmann::json j;
-            // j["utc_time"]     = adsb_out_dynamic.utc_time;
-            // j["lat"]          = adsb_out_dynamic.lat;
-            // j["lon"]          = adsb_out_dynamic.lon;
-            // j["alt_pres"]     = adsb_out_dynamic.alt_pres;
-            // j["alt_gnss"]     = adsb_out_dynamic.alt_gnss;
-            // j["hor_acc"]      = adsb_out_dynamic.hor_acc;
-            // j["ver_acc"]      = adsb_out_dynamic.ver_acc;
-            // j["acc_vel"]      = adsb_out_dynamic.acc_vel;
-            // j["ver_velocity"] = adsb_out_dynamic.ver_velocity;
-            // j["ns_vog"]       = adsb_out_dynamic.ns_vog;
-            // j["ew_vog"]       = adsb_out_dynamic.ew_vog;
-            // j["state"]        = adsb_out_dynamic.state;
-            // j["squawk"]       = adsb_out_dynamic.squawk;
-            // j["fix_type"]     = adsb_out_dynamic.fix_type;
-            // j["num_sats"]     = adsb_out_dynamic.num_sats;
-            // j["em_status"]    = adsb_out_dynamic.em_status;
-            // j["control"]      = adsb_out_dynamic.control;
+             nlohmann::json j;
+             j["utc_time"]     = adsb_out_dynamic.utc_time;
+             j["lat"]          = adsb_out_dynamic.lat;
+             j["lon"]          = adsb_out_dynamic.lon;
+             j["alt_pres"]     = adsb_out_dynamic.alt_pres;
+             j["alt_gnss"]     = adsb_out_dynamic.alt_gnss;
+             j["hor_acc"]      = adsb_out_dynamic.hor_acc;
+             j["ver_acc"]      = adsb_out_dynamic.ver_acc;
+             j["acc_vel"]      = adsb_out_dynamic.acc_vel;
+             j["ver_velocity"] = adsb_out_dynamic.ver_velocity;
+             j["ns_vog"]       = adsb_out_dynamic.ns_vog;
+             j["ew_vog"]       = adsb_out_dynamic.ew_vog;
+             j["state"]        = adsb_out_dynamic.state;
+             j["squawk"]       = adsb_out_dynamic.squawk;
+             j["fix_type"]     = adsb_out_dynamic.fix_type;
+             j["num_sats"]     = adsb_out_dynamic.num_sats;
+             j["em_status"]    = adsb_out_dynamic.em_status;
+             j["control"]      = adsb_out_dynamic.control;
     
-            // const std::string payload = j.dump();
+             const std::string payload = j.dump();
 
-            // emit publishMQTTData(_adsbTopic, payload);
+             emit publishMQTTData(_dynamicTopic, payload);
             
             break;
         }
@@ -90,19 +92,19 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
             mavlink_geosub_adsb_out_static_t adsb_out_static;
             mavlink_msg_geosub_adsb_out_static_decode(&message, &adsb_out_static);
 
-            // nlohmann::json j;
-            // j["ICAO_address"] = adsb_out_static.ICAO_address;
-            // j["integrity"]    = adsb_out_static.integrity;
-            // j["stall_speed"]  = adsb_out_static.stall_speed;
-            // j["capability"]   = adsb_out_static.capability;
-            // j["emitter"]      = adsb_out_static.emitter;
-            // j["alw_encode"]   = adsb_out_static.alw_encode;
-            // j["gps_lat_offs"] = adsb_out_static.gps_lat_offs;
-            // j["gps_lon_offs"] = adsb_out_static.gps_lon_offs;
+             nlohmann::json j;
+             j["ICAO_address"] = adsb_out_static.ICAO_address;
+             j["integrity"]    = adsb_out_static.integrity;
+             j["stall_speed"]  = adsb_out_static.stall_speed;
+             j["capability"]   = adsb_out_static.capability;
+             j["emitter"]      = adsb_out_static.emitter;
+             j["alw_encode"]   = adsb_out_static.alw_encode;
+             j["gps_lat_offs"] = adsb_out_static.gps_lat_offs;
+             j["gps_lon_offs"] = adsb_out_static.gps_lon_offs;
             
-            // const std::string payload = j.dump();
+             const std::string payload = j.dump();
 
-            // emit publishMQTTData(_adsbTopic, payload);
+             emit publishMQTTData(_staticTopic, payload);
             
             break;
         }

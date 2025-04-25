@@ -113,6 +113,10 @@ QGCCorePlugin::~QGCCorePlugin()
     {
         delete _gica;
     }
+    if (_trafficViewer)
+    {
+        delete _trafficViewer;
+    }
     if (_adsb)
     {
         delete _adsb;
@@ -129,6 +133,7 @@ QGCCorePlugin::QGCCorePlugin(QGCApplication *app, QGCToolbox *toolbox)
     QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
     _p = new QGCCorePlugin_p;
     _gica = new GICA;
+    _trafficViewer = new TrafficViewer;
     _adsb = new ADSB;
     _gpsFeedback = new GPSFeedback;
 }
@@ -398,6 +403,7 @@ QQmlApplicationEngine *QGCCorePlugin::createQmlApplicationEngine(QObject *parent
     qmlEngine->rootContext()->setContextProperty("debugMessageModel", AppMessages::getModel());
 
     qmlEngine->rootContext()->setContextProperty("gica", _gica);
+    qmlEngine->rootContext()->setContextProperty("trafficViewer", _trafficViewer);
     qmlEngine->rootContext()->setContextProperty("gpsFeedback", _gpsFeedback);
 
     return qmlEngine;

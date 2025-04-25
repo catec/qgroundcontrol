@@ -194,4 +194,35 @@ Item {
             id: gicaWidgetInstance
         }
     }
+
+    // TrafficViewer Data Visualization widget
+        Window {
+            width: 1200
+            height: 850
+
+            title: "Traffic Viewer Data Visualization"
+
+            visible: true
+
+            color: qgcPal.window
+
+            // Make the window not closable
+            onClosing: {
+                close.accepted = false;
+            }
+
+            // Prevent window resizing
+            maximumWidth: 1200
+            minimumWidth: 500
+            maximumHeight: 850
+            minimumHeight: 300
+
+            // Set the window to always stay on top
+            // flags: Qt.Window | Qt.WindowStaysOnTopHint
+
+            // Instanciate the qml interface
+            TrafficViewerWidget {
+                id: trafficViewerWidgetInstance
+            }
+        }
 }

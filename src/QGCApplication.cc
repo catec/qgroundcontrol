@@ -103,6 +103,7 @@
 #include "VehicleLinkManager.h"
 #include "Autotune.h"
 #include "../Geosub/GICA.h"
+#include "../Geosub/TrafficViewer.h"
 
 #if defined(QGC_ENABLE_PAIRING)
 #include "PairingManager.h"
@@ -466,6 +467,8 @@ void QGCApplication::_initCommon()
     qmlRegisterUncreatableType<Autotune>                (kQGCVehicle,                       1, 0, "Autotune",                   kRefOnly);
     
     qmlRegisterType<GICA>                               ("QGroundControl.Geosub",           1, 0, "GICA"                                );
+    qmlRegisterType<TrafficViewer>                      ("QGroundControl.Geosub",           1, 0, "TrafficViewer"                       );
+    qmlRegisterType<AircraftListModel>                  ("QGroundControl.Geosub",           1, 0, "AircraftListModel"                   );
 
     qmlRegisterUncreatableType<MissionController>       (kQGCControllers,                   1, 0, "MissionController",          kRefOnly);
     qmlRegisterUncreatableType<GeoFenceController>      (kQGCControllers,                   1, 0, "GeoFenceController",         kRefOnly);
