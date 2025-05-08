@@ -1,13 +1,21 @@
-import QtQuick 2.15
+/*import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtLocation 5.15
-import QtPositioning 5.15
+import QtPositioning 5.15*/
+
+import QtQuick                  2.3
+import QtQuick.Controls         1.2
+import QtLocation               5.3
+import QtPositioning            5.3
+
+import QGroundControl                       1.0
+import QGroundControl.FlightMap             1.0
 
 Rectangle {
     width: 1200
     height: 850
 
-    Plugin {
+    /*Plugin {
         id: mapPlugin
         name: "osm"
         PluginParameter {
@@ -27,14 +35,45 @@ Rectangle {
             name: "osm.mapping.attribution";
             value: "true"
         }
-    }
+    }*/
 
     Map {
-        id: myMap
+        id: _map
         anchors.fill: parent
         center: QtPositioning.coordinate(41.408, 2.202)
         zoomLevel: 12
-        plugin: mapPlugin
+        //activeMapType: "Hybrid"
+        //plugin: mapPlugin
+        //property bool   isSatelliteMap:   true
+        plugin:         Plugin { name: "QGroundControl" }
+
+
+        function updateActiveMapType() {
+            var settings =  QGroundControl.settingsManager.flightMapSettings
+            var fullMapName = settings.mapProvider.value + " " + settings.mapType.value
+
+            for (var i = 0; i < _map.supportedMapTypes.length; i++) {
+                if (fullMapName === _map.supportedMapTypes[i].name) {
+                    _map.activeMapType = _map.supportedMapTypes[i]
+                    return
+                }
+            }
+        }
+
+        Component.onCompleted: {
+            updateActiveMapType()
+        }
+        Connections {
+            target:             QGroundControl.settingsManager.flightMapSettings.mapType
+            onRawValueChanged:  updateActiveMapType()
+        }
+
+        Connections {
+            target:             QGroundControl.settingsManager.flightMapSettings.mapProvider
+            onRawValueChanged:  updateActiveMapType()
+        }
+
+
 
         MouseArea {
         anchors.fill: parent
