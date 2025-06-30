@@ -18,7 +18,13 @@ import QGroundControl.Controls      1.0
 import QGroundControl.ScreenTools   1.0
 import QGroundControl.Controllers   1.0
 
+import QGroundControl.Geosub 1.0
+
 ColumnLayout {
+
+    GICA {
+        id: gica
+    }
     property real dataDisplayHeight : 25
     property real dataDisplayWidth  : 100
 
@@ -33,6 +39,20 @@ ColumnLayout {
         width: 1
         height: 5
         color: "transparent"
+    }
+
+    Row {
+        spacing: 10
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        Switch {
+            id: toggleButton
+            checked: true    // <-- Activo por defecto
+            text: checked ? "Activado" : "Desactivado"
+            onCheckedChanged: {
+                gica.toggleGPS(checked)
+            }
+        }
     }
 
     Text { text: "Linear" ; color: qgcPal.text }
