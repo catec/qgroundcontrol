@@ -256,6 +256,7 @@ QT += \
     texttospeech \
     core-private
 
+
 # Multimedia only used if QVC is enabled
 !contains (DEFINES, QGC_DISABLE_UVC) {
     QT += \
@@ -428,6 +429,7 @@ contains (DEFINES, QGC_ENABLE_PAIRING) {
 #
 
 HEADERS += \
+    src/Geosub/AircraftListModel.h \
     src/QmlControls/QmlUnitsConversion.h \
     src/Vehicle/VehicleEscStatusFactGroup.h \
     src/api/QGCCorePlugin.h \
@@ -442,6 +444,7 @@ contains (DEFINES, QGC_ENABLE_PAIRING) {
 }
 
 SOURCES += \
+    src/Geosub/AircraftListModel.cc \
     src/Vehicle/VehicleEscStatusFactGroup.cc \
     src/api/QGCCorePlugin.cc \
     src/api/QGCOptions.cc \
@@ -752,6 +755,7 @@ HEADERS += \
     src/AnalyzeView/GeoTagController.h \
     src/AnalyzeView/ExifParser.h \
     src/Geosub/GICA.h \
+    src/Geosub/TrafficViewer.h \
     src/Geosub/ADSB.h \
     src/Telespazio/GPSFeedback.h \
 
@@ -1009,6 +1013,7 @@ SOURCES += \
     src/AnalyzeView/GeoTagController.cc \
     src/AnalyzeView/ExifParser.cc \
     src/Geosub/GICA.cc \
+    src/Geosub/TrafficViewer.cc \
     src/Geosub/ADSB.cc \
     src/Telespazio/GPSFeedback.cc \
 

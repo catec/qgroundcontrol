@@ -1,3 +1,4 @@
 Module QGroundControl.Geosub
 
 GICAWidget 1.0 GICAWidget.qml
+TrafficViewerWidget         1.0 TrafficViewerWidget.qml

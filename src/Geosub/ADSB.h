@@ -38,6 +38,8 @@ public slots:
 
 private:
 
-    const std::string _adsbTopic;
+    const std::string _adsbInTopic;
+    const std::string _staticTopic;
+    const std::string _dynamicTopic;
 
 };

@@ -16,6 +16,7 @@
 
 #include "Vehicle.h"
 #include "../Geosub/GICA.h"
+#include "../Geosub/TrafficViewer.h"
 #include "../Telespazio/GPSFeedback.h"
 #include "MAVLinkProtocol.h"
 #include "FirmwarePluginManager.h"
@@ -63,6 +64,7 @@
 #endif
 
 #include "../Geosub/GICA.h"
+#include "../Geosub/TrafficViewer.h"
 #include "../Geosub/ADSB.h"
 
 #include "MQTTPublisher.h"
@@ -141,6 +143,7 @@ Vehicle::Vehicle(LinkInterface *link,
 
     QGCCorePlugin *qgcCorePlugin = _toolbox->corePlugin();
     connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->gica(), &GICA::mavlinkMessageReceived);
+    connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->trafficViewer(), &TrafficViewer::mavlinkMessageReceived);
     connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->adsb(), &ADSB::mavlinkMessageReceived);
 
     connect(qgcCorePlugin->adsb(), &ADSB::publishMQTTData, _toolbox->mqttLink()->mqttPublisher, &MQTTPublisher::publishMQTTData);
