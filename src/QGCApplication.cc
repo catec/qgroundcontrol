@@ -271,7 +271,7 @@ QGCApplication::QGCApplication(int &argc, char* argv[], bool unitTesting)
         applicationName = QGC_APPLICATION_NAME;
 #endif
     }
-    setApplicationName(applicationName);
+    setApplicationName(applicationName.append(" main"));
     setOrganizationName(QGC_ORG_NAME);
     setOrganizationDomain(QGC_ORG_DOMAIN);
 

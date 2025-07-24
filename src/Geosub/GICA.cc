@@ -43,9 +43,9 @@ void GICA::toggleGPS(bool enable) {
   }
 
   // Ejemplo usando MAV_CMD_DO_SET_ACTUATOR (puede ser otro)
-  vehicle->sendMavCommand(MAV_COMP_ID_AUTOPILOT1, // componente de destino
-                          MAV_CMD_SET_GNSS_MODE, true, enable ? 1.0f : 0.0f, 0,
-                          0, 0, 0, 0, 0);
+  vehicle->sendMavCommand(MAV_COMP_ID_ALL, // componente de destino
+                          MAV_CMD_SET_GNSS_MODE, true, enable ? 1 : 0, 0, 0, 0,
+                          0, 0, 0);
 }
 
 void GICA::mavlinkMessageReceived([[maybe_unused]] LinkInterface *link,

@@ -243,7 +243,7 @@ int main(int argc, char *argv[])
     // Stable and Daily have same QGC_APPLICATION_NAME so they would
     // not be able to run at the same time
     QString runguardString(QGC_APPLICATION_NAME);
-    runguardString.append("RunGuardKey");
+    runguardString.append(" mainRunGuardKey");
 
     RunGuard guard(runguardString);
     if (!guard.tryToRun()) {
