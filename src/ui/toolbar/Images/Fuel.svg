@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <style type="text/css">
+    .bg{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+    .needle{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;}
+    .marks{fill:none;stroke:#FFFFFF;stroke-width:2;}
+  </style>
+
+  <!-- Semicírculo del medidor -->
+  <path class="needle" d="M12 48 A24 24 0 0 1 60 48"/>
+
+  <!-- Aguja apuntando a full (F) -->
+  <line class="needle" x1="36" y1="48" x2="50" y2="35"/>
+
+  <!-- Texto E y F -->
+  <text x="10" y="55" font-family="sans-serif" font-size="6" fill="#FFFFFF">E</text>
+  <text x="58" y="55" font-family="sans-serif" font-size="6" fill="#FFFFFF">F</text>
+</svg>
+
+
+

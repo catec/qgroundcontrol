@@ -69,41 +69,42 @@
 #if !defined(QGC_DISABLE_MAVLINK_INSPECTOR)
 #include "MAVLinkInspectorController.h"
 #endif
-#include "HorizontalFactValueGrid.h"
-#include "InstrumentValueData.h"
+#include "../Geosub/FuelManager.h"
+#include "../Geosub/GICA.h"
+#include "../Geosub/TrafficViewer.h"
 #include "AppMessages.h"
-#include "SimulatedPosition.h"
-#include "PositionManager.h"
-#include "FollowMe.h"
-#include "MissionCommandTree.h"
-#include "QGCMapPolygon.h"
-#include "QGCMapCircle.h"
-#include "ParameterManager.h"
-#include "SettingsManager.h"
-#include "QGCCorePlugin.h"
-#include "QGCCameraManager.h"
+#include "Autotune.h"
 #include "CameraCalc.h"
-#include "VisualMissionItem.h"
 #include "EditPositionDialogController.h"
 #include "FactValueSliderListModel.h"
-#include "ShapeFileHelper.h"
-#include "QGCFileDownload.h"
 #include "FirmwareImage.h"
-#include "MavlinkConsoleController.h"
+#include "FollowMe.h"
 #include "GeoTagController.h"
+#include "HorizontalFactValueGrid.h"
+#include "InstrumentValueData.h"
 #include "LogReplayLink.h"
-#include "VehicleObjectAvoidance.h"
-#include "TrajectoryPoints.h"
-#include "RCToParamDialogController.h"
+#include "MavlinkConsoleController.h"
+#include "MissionCommandTree.h"
+#include "ParameterManager.h"
+#include "PositionManager.h"
+#include "QGCCameraManager.h"
+#include "QGCCorePlugin.h"
+#include "QGCFileDownload.h"
 #include "QGCImageProvider.h"
+#include "QGCMAVLink.h"
+#include "QGCMapCircle.h"
+#include "QGCMapPolygon.h"
+#include "RCToParamDialogController.h"
+#include "SettingsManager.h"
+#include "ShapeFileHelper.h"
+#include "SimulatedPosition.h"
 #include "TerrainProfile.h"
 #include "ToolStripAction.h"
 #include "ToolStripActionList.h"
-#include "QGCMAVLink.h"
+#include "TrajectoryPoints.h"
 #include "VehicleLinkManager.h"
-#include "Autotune.h"
-#include "../Geosub/GICA.h"
-#include "../Geosub/TrafficViewer.h"
+#include "VehicleObjectAvoidance.h"
+#include "VisualMissionItem.h"
 
 #if defined(QGC_ENABLE_PAIRING)
 #include "PairingManager.h"
@@ -538,6 +539,11 @@ void QGCApplication::_initCommon()
     qmlRegisterSingletonType<ScreenToolsController>     ("QGroundControl.ScreenToolsController",    1, 0, "ScreenToolsController",  screenToolsControllerSingletonFactory);
     qmlRegisterSingletonType<ShapeFileHelper>           ("QGroundControl.ShapeFileHelper",          1, 0, "ShapeFileHelper",        shapeFileHelperSingletonFactory);
     qmlRegisterSingletonType<ShapeFileHelper>           ("MAVLink",                                 1, 0, "MAVLink",                mavlinkSingletonFactory);
+    qmlRegisterSingletonType<FuelManager>(
+        "QGroundControl.Fuel", 1, 0, "FuelManager",
+        [](QQmlEngine *, QJSEngine *) -> QObject * {
+          return new FuelManager();
+        });
 
     // Although this should really be in _initForNormalAppBoot putting it here allowws us to create unit tests which pop up more easily
     if(QFontDatabase::addApplicationFont(":/fonts/opensans") < 0) {
