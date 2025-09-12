@@ -10,26 +10,34 @@ import QGroundControl.Fuel 1.0
 Item {
     property real fuelPercent: FuelManager.fuelPercent
     property double burnRate: 100 / (3 * 60 * 60)
+    property bool timerRunning: false
     id: _root
     anchors.top:    parent.top
     anchors.bottom: parent.bottom
     width:          fuelRow.width
+    focus: true
 
     Timer {
-        if (activeVehicle && activeVehicle.armed) {
+        
             interval: 1000
             repeat: true
-            running: true
-            onTriggered: {
+            running: timerRunning
+            onTriggered: { 
                 if (fuelPercent > 0) {
                     fuelPercent = Math.max(0, fuelPercent - burnRate)
                     FuelManager.fuelPercent = fuelPercent
                     FuelManager.saveFuel()
                 }
             }
+        
+    }
+    Shortcut {
+        sequence: "Ctrl+F"
+        onActivated: {
+            timerRunning = !timerRunning
+            console.log("Timer " + (timerRunning ? "iniciado" : "parado"))
         }
     }
-
     Row {
         id: fuelRow
         anchors.top: parent.top

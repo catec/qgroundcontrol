@@ -108,6 +108,30 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
             
             break;
         }
+        case MAVLINK_MSG_ID_GLOBAL_POSITION_INT: {
+
+          mavlink_global_position_int_t global_pos;
+          mavlink_msg_global_position_int_decode(&message, &global_pos);
+          std::cout << "No ve el mensage de global position" << std::endl;
+          nlohmann::json j;
+          j["identification"] = 8476;
+          j["timestamp"] = global_pos.time_boot_ms / 100;
+          j["latitude"] = global_pos.lat;
+          j["longitude"] = global_pos.lon;
+          j["altitude"] = global_pos.alt / 1000;
+          j["baroLevel"] = -999;
+          j["height"] = global_pos.relative_alt / 1000;
+          j["groundSpeedWE"] = global_pos.vx / 100;
+          j["groundSpeedSN"] = global_pos.vy / 100;
+          j["verticalSpeed"] = global_pos.vz / -100;
+          j["stateTxRate"] = 5;
+
+          const std::string payload = j.dump();
+
+          emit publishMQTTData("", payload);
+
+          break;
+        }
 
         default: 
             break;
