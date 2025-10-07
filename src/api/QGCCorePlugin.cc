@@ -109,10 +109,10 @@ QGCCorePlugin::~QGCCorePlugin()
     {
         delete _p;
     }
-    if (_gica)
-    {
-        delete _gica;
-    }
+    // if (_gica)
+    // {
+    //     delete _gica;
+    // }
     if (_trafficViewer)
     {
         delete _trafficViewer;
@@ -132,7 +132,7 @@ QGCCorePlugin::QGCCorePlugin(QGCApplication *app, QGCToolbox *toolbox)
 {
     QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
     _p = new QGCCorePlugin_p;
-    _gica = new GICA;
+    // _gica = new GICA;
     _trafficViewer = new TrafficViewer;
     _adsb = new ADSB;
     _gpsFeedback = new GPSFeedback;
@@ -402,7 +402,7 @@ QQmlApplicationEngine *QGCCorePlugin::createQmlApplicationEngine(QObject *parent
     qmlEngine->rootContext()->setContextProperty("joystickManager", qgcApp()->toolbox()->joystickManager());
     qmlEngine->rootContext()->setContextProperty("debugMessageModel", AppMessages::getModel());
 
-    qmlEngine->rootContext()->setContextProperty("gica", _gica);
+    // qmlEngine->rootContext()->setContextProperty("gica", _gica);
     qmlEngine->rootContext()->setContextProperty("trafficViewer", _trafficViewer);
     qmlEngine->rootContext()->setContextProperty("gpsFeedback", _gpsFeedback);
 

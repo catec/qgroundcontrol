@@ -70,7 +70,7 @@
 #include "MAVLinkInspectorController.h"
 #endif
 #include "../Geosub/FuelManager.h"
-#include "../Geosub/GICA.h"
+// #include "../Geosub/GICA.h"
 #include "../Geosub/TrafficViewer.h"
 #include "AppMessages.h"
 #include "Autotune.h"
@@ -466,8 +466,8 @@ void QGCApplication::_initCommon()
     qmlRegisterUncreatableType<LinkInterface>           (kQGCVehicle,                       1, 0, "LinkInterface",              kRefOnly);
     qmlRegisterUncreatableType<VehicleLinkManager>      (kQGCVehicle,                       1, 0, "VehicleLinkManager",         kRefOnly);
     qmlRegisterUncreatableType<Autotune>                (kQGCVehicle,                       1, 0, "Autotune",                   kRefOnly);
-    
-    qmlRegisterType<GICA>                               ("QGroundControl.Geosub",           1, 0, "GICA"                                );
+
+    // qmlRegisterType<GICA> ("QGroundControl.Geosub",           1, 0, "GICA" );
     qmlRegisterType<TrafficViewer>                      ("QGroundControl.Geosub",           1, 0, "TrafficViewer"                       );
     qmlRegisterType<AircraftListModel>                  ("QGroundControl.Geosub",           1, 0, "AircraftListModel"                   );
 

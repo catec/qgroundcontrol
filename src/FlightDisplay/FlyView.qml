@@ -165,35 +165,35 @@ Item {
     }
 
     // GICA Data Visualization widget
-    Window {
-        width: 600
-        height: 850
+    // Window {
+    //     width: 600
+    //     height: 850
         
-        title: "GICA Data Visualization"
+    //     title: "GICA Data Visualization"
         
-        visible: true
+    //     visible: true
 
-        color: qgcPal.window
+    //     color: qgcPal.window
 
-        // Make the window not closable
-        onClosing: {
-            close.accepted = false;
-        }
+    //     // Make the window not closable
+    //     onClosing: {
+    //         close.accepted = false;
+    //     }
 
-        // Prevent window resizing
-        maximumWidth: width
-        minimumWidth: width
-        maximumHeight: height
-        minimumHeight: height
+    //     // Prevent window resizing
+    //     maximumWidth: width
+    //     minimumWidth: width
+    //     maximumHeight: height
+    //     minimumHeight: height
 
-        // Set the window to always stay on top
-        // flags: Qt.Window | Qt.WindowStaysOnTopHint
+    //     // Set the window to always stay on top
+    //     // flags: Qt.Window | Qt.WindowStaysOnTopHint
 
-        // Instanciate the qml interface
-        GICAWidget {
-            id: gicaWidgetInstance
-        }
-    }
+    //     // Instanciate the qml interface
+    //     // GICAWidget {
+    //     //     id: gicaWidgetInstance
+    //     // }
+    // }
 
     // TrafficViewer Data Visualization widget
         Window {

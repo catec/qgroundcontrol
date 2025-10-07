@@ -114,7 +114,7 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
           mavlink_msg_global_position_int_decode(&message, &global_pos);
           std::cout << "No ve el mensage de global position" << std::endl;
           nlohmann::json j;
-          j["identification"] = 8476;
+          j["identification"] = 1;
           j["timestamp"] = global_pos.time_boot_ms / 100;
           j["latitude"] = global_pos.lat;
           j["longitude"] = global_pos.lon;
@@ -128,7 +128,7 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
 
           const std::string payload = j.dump();
 
-          emit publishMQTTData("", payload);
+          emit publishMQTTData("UAS_7777", payload);
 
           break;
         }

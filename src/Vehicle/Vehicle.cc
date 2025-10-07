@@ -15,7 +15,7 @@
 #include <Eigen/Eigen>
 
 #include "Vehicle.h"
-#include "../Geosub/GICA.h"
+// #include "../Geosub/GICA.h"
 #include "../Geosub/TrafficViewer.h"
 #include "../Telespazio/GPSFeedback.h"
 #include "MAVLinkProtocol.h"
@@ -63,7 +63,7 @@
 #include "AirspaceVehicleManager.h"
 #endif
 
-#include "../Geosub/GICA.h"
+// #include "../Geosub/GICA.h"
 #include "../Geosub/TrafficViewer.h"
 #include "../Geosub/ADSB.h"
 
@@ -142,7 +142,8 @@ Vehicle::Vehicle(LinkInterface *link,
     connect(_mavlink, &MAVLinkProtocol::messageReceived, this, &Vehicle::_mavlinkMessageReceived);
 
     QGCCorePlugin *qgcCorePlugin = _toolbox->corePlugin();
-    connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->gica(), &GICA::mavlinkMessageReceived);
+    // connect(_mavlink, &MAVLinkProtocol::messageReceived,
+    // qgcCorePlugin->gica(), &GICA::mavlinkMessageReceived);
     connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->trafficViewer(), &TrafficViewer::mavlinkMessageReceived);
     connect(_mavlink, &MAVLinkProtocol::messageReceived, qgcCorePlugin->adsb(), &ADSB::mavlinkMessageReceived);
 

@@ -17,7 +17,7 @@
 #include <QObject>
 #include <QVariantList>
 
-#include "../Geosub/GICA.h"
+// #include "../Geosub/GICA.h"
 #include "../Geosub/TrafficViewer.h"
 #include "../Geosub/ADSB.h"
 #include "../Telespazio/GPSFeedback.h"
@@ -202,7 +202,7 @@ public:
     // Custom builds can start there first run prompt ids from here
     static const int firstRunPromptIdsFirstCustomId = 10000;
 
-    GICA *gica() const { return _gica; }
+    // GICA *gica() const { return _gica; }
     TrafficViewer *trafficViewer() const { return _trafficViewer; }
     ADSB *adsb() const { return _adsb; }
     GPSFeedback *gpsFeedback() const { return _gpsFeedback; }
@@ -224,7 +224,7 @@ protected:
 
 private:
     QGCCorePlugin_p *_p;
-    GICA *_gica;
+    // GICA *_gica;
     TrafficViewer *_trafficViewer;
     ADSB *_adsb;
     GPSFeedback *_gpsFeedback;
