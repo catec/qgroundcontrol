@@ -3,8 +3,8 @@
 PCGicaManager::PCGicaManager(QObject* parent)
     : QObject(parent)
 {
-    _update("PC Gica: Unknown", "#d9534f"); // rojo
-    connect(&_connectingTimer, &QTimer::timeout, this, &PCGicaManager::_setOk);
+  _update("GPS Gica: Unknown", "#d9534f"); // rojo
+  connect(&_connectingTimer, &QTimer::timeout, this, &PCGicaManager::_setOk);
 }
 
 void PCGicaManager::onAutopilotConnected(bool connected)
@@ -23,31 +23,31 @@ void PCGicaManager::onAutopilotConnected(bool connected)
 
 void PCGicaManager::_setConnecting()
 {
-    _update("PC Gica: Connecting...", "#f0ad4e"); // amarillo
-    emit gicaOkChanged(false);
+  _update("GPS Gica: Connecting...", "#f0ad4e"); // amarillo
+  emit gicaOkChanged(false);
 
-    int randomDelay = QRandomGenerator::global()->bounded(2000, 5001);
-    _connectingTimer.setSingleShot(true);
-    _connectingTimer.start(randomDelay);
+  int randomDelay = QRandomGenerator::global()->bounded(6000, 120001);
+  _connectingTimer.setSingleShot(true);
+  _connectingTimer.start(randomDelay);
 }
 
 void PCGicaManager::_setOk()
 {
-    _update("PC Gica: OK", "#5cb85c"); // verde
-    emit gicaOkChanged(true);
+  _update("GPS Gica: OK", "#5cb85c"); // verde
+  emit gicaOkChanged(true);
 }
 
 void PCGicaManager::_setDisconnected()
 {
     _connectingTimer.stop();
-    _update("PC Gica: Disconnected", "#d9534f"); // rojo
+    _update("GPS Gica: Disconnected", "#d9534f"); // rojo
     emit gicaOkChanged(false);
 }
 
 void PCGicaManager::resetToUnknown()
 {
     _connectingTimer.stop();
-    _update("PC Gica: Unknown", "#d9534f");
+    _update("GPS Gica: Unknown", "#d9534f");
     emit gicaOkChanged(false);
 }
 
