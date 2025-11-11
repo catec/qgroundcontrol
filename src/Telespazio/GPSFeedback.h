@@ -23,21 +23,22 @@ class GPSFeedback : public QObject
     // Q_PROPERTY(qreal    connectionAvailable   READ    connectionAvailable   NOTIFY    connectionAvailableChanged)
 
     Q_PROPERTY(QGeoCoordinate       coordinate                  READ coordinate                NOTIFY coordinateChanged)
+    Q_PROPERTY(double heading READ heading NOTIFY headingChanged);
 
-public:
-
+  public:
     explicit GPSFeedback(QObject* parent = nullptr);
 
     // qreal    connectionAvailable   () const { return _connectionAvailable; }
 
     QGeoCoordinate    coordinate            () const { return _coordinate; }
-
-signals:
+    double heading() const { return _heading; }
+  signals:
 
     // void connectionAvailableChanged ();
-    void coordinateChanged          ();
+    void coordinateChanged();
+    void headingChanged();
 
-public slots:
+  public slots:
 
     void mavlinkMessageReceived(LinkInterface* link, mavlink_message_t message);
 
@@ -49,9 +50,9 @@ private:
     // QTimer _messageTimeout;
 
     void setCoordinate          (QGeoCoordinate value);
-
+    void setHeading(double value);
     // float    _connectionAvailable;
 
-    QGeoCoordinate    _coordinate;
-
+    QGeoCoordinate _coordinate;
+    double _heading = 0.0;
 };

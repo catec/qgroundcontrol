@@ -23,7 +23,6 @@ MapQuickItem {
     property var    map
     property double altitude:       Number.NaN                                      ///< NAN to not show
     property string callsign:       ""                                              ///< Vehicle callsign
-    property double heading:        vehicle ? vehicle.heading.value : Number.NaN    ///< Vehicle heading, NAN for none
     property real   size:           _adsbVehicle ? _adsbSize : _uavSize             /// Size for icon
     property bool   alert:          false                                           /// Collision alert
     property bool   telespazio:     false
@@ -37,6 +36,12 @@ MapQuickItem {
     property real   _adsbSize:      ScreenTools.defaultFontPixelHeight * 2.5
     property var    _map:           map
     property bool   _multiVehicle:  QGroundControl.multiVehicleManager.vehicles.count > 1
+    
+    property double heading:     telespazio ?   (
+        typeof gpsFeedback !== "undefined" && !isNaN(gpsFeedback.heading) ?
+            gpsFeedback.heading :
+            (vehicle ? vehicle.heading.value : Number.NaN)
+    ) : vehicle ? vehicle.heading.value : Number.NaN
 
     sourceItem: Item {
         id:         vehicleItem
@@ -53,7 +58,7 @@ MapQuickItem {
         }
         DropShadow {
             anchors.fill:       vehicleShadow
-            visible:            vehicleIcon.visible && _adsbVehicle
+            visible:            telespazio ? false : vehicleIcon.visible && _adsbVehicle
             horizontalOffset:   4
             verticalOffset:     4
             radius:             32.0
@@ -63,11 +68,12 @@ MapQuickItem {
         }
         Image {
             id:                 vehicleIcon
-            source:             telespazio ? "/qmlimages/drone-spot-gps-feedback.svg"  : (_adsbVehicle ? (alert ? "/qmlimages/AlertAircraft.svg" : "/qmlimages/AwarenessAircraft.svg") : vehicle.vehicleImageOpaque)
+            source:             telespazio ? "/qmlimages/vehicleArrowOutlineOrange.svg"  : (_adsbVehicle ? (alert ? "/qmlimages/AlertAircraft.svg" : "/qmlimages/AwarenessAircraft.svg") : vehicle.vehicleImageOpaque)
             mipmap:             true
             width:              size
             sourceSize.width:   size
             fillMode:           Image.PreserveAspectFit
+
             transform: Rotation {
                 origin.x:       vehicleIcon.width  / 2
                 origin.y:       vehicleIcon.height / 2

@@ -51,7 +51,7 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
 
             const std::string payload = j.dump();
 
-            emit publishMQTTData(_adsbInTopic, payload);
+            // emit publishMQTTData(_adsbInTopic, payload);
 
             break;
         }
@@ -82,9 +82,9 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
     
              const std::string payload = j.dump();
 
-             emit publishMQTTData(_dynamicTopic, payload);
-            
-            break;
+             //  emit publishMQTTData(_dynamicTopic, payload);
+
+             break;
         }
 
         case MAVLINK_MSG_ID_GEOSUB_ADSB_OUT_STATIC:
@@ -104,15 +104,15 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
             
              const std::string payload = j.dump();
 
-             emit publishMQTTData(_staticTopic, payload);
-            
-            break;
+             //  emit publishMQTTData(_staticTopic, payload);
+
+             break;
         }
         case MAVLINK_MSG_ID_GLOBAL_POSITION_INT: {
 
           mavlink_global_position_int_t global_pos;
           mavlink_msg_global_position_int_decode(&message, &global_pos);
-          std::cout << "No ve el mensage de global position" << std::endl;
+          //   std::cout << "No ve el mensage de global position" << std::endl;
           nlohmann::json j;
           j["identification"] = 1;
           j["timestamp"] = global_pos.time_boot_ms / 100;
@@ -128,7 +128,7 @@ void ADSB::mavlinkMessageReceived([[maybe_unused]] LinkInterface* link, mavlink_
 
           const std::string payload = j.dump();
 
-          emit publishMQTTData("UAS_7777", payload);
+          //   emit publishMQTTData("UAS_7777", payload);
 
           break;
         }

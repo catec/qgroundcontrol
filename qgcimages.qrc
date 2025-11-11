@@ -180,6 +180,8 @@
         <file alias="vehicleArrowOpaque.svg">src/FlightMap/Images/vehicleArrowOpaque.svg</file>
         <file alias="drone-spot-gps-feedback.svg">src/FlightMap/Images/drone-spot-gps-feedback.svg</file>
         <file alias="vehicleArrowOutline.svg">src/FlightMap/Images/vehicleArrowOutline.svg</file>
+        <file alias="vehicleArrowOutlineOrange.svg">src/FlightMap/Images/vehicleArrowOutlineOrange.svg</file>
+
         <file alias="VehicleDown.png">src/AutoPilotPlugins/PX4/Images/VehicleDown.png</file>
         <file alias="VehicleDownRotate.png">src/AutoPilotPlugins/PX4/Images/VehicleDownRotate.png</file>
         <file alias="VehicleLeft.png">src/AutoPilotPlugins/PX4/Images/VehicleLeft.png</file>
