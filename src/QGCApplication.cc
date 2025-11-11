@@ -70,6 +70,7 @@
 #include "MAVLinkInspectorController.h"
 #endif
 #include "../Geosub/FuelManager.h"
+#include "../Geosub/PCGicaManager.h"
 // #include "../Geosub/GICA.h"
 #include "../Geosub/TrafficViewer.h"
 #include "AppMessages.h"
@@ -135,6 +136,7 @@
 
 #include "QGCMapEngine.h"
 
+static PCGicaManager *_gicaManager = nullptr;
 class FinishVideoInitialization : public QRunnable
 {
 public:
@@ -544,6 +546,41 @@ void QGCApplication::_initCommon()
         [](QQmlEngine *, QJSEngine *) -> QObject * {
           return new FuelManager();
         });
+    qmlRegisterSingletonType<PCGicaManager>(
+        "QGroundControl.PCGica", 1, 0, "PCGicaManager",
+        [](QQmlEngine *, QJSEngine *) -> QObject * {
+          _gicaManager = new PCGicaManager();
+          return _gicaManager;
+        });
+    connect(toolbox()->multiVehicleManager(),
+            &MultiVehicleManager::activeVehicleChanged, this,
+            [this](Vehicle *vehicle) {
+              if (!_gicaManager)
+                return;
+
+              if (vehicle) {
+                VehicleLinkManager *linkMgr = vehicle->vehicleLinkManager();
+                if (linkMgr) {
+                  // Conectamos la señal de pérdida de comunicación
+                  QObject::connect(
+                      linkMgr, &VehicleLinkManager::communicationLostChanged,
+                      _gicaManager, [](bool lost) {
+                        if (lost) {
+                          _gicaManager->onAutopilotConnected(false);
+                        } else {
+                          _gicaManager->onAutopilotConnected(true);
+                        }
+                      });
+                }
+
+                // Estado inicial: conectado (pasará a Connecting... y luego OK)
+                _gicaManager->onAutopilotConnected(true);
+
+              } else {
+                // No hay vehículo → Desconectado
+                _gicaManager->onAutopilotConnected(false);
+              }
+            });
 
     // Although this should really be in _initForNormalAppBoot putting it here allowws us to create unit tests which pop up more easily
     if(QFontDatabase::addApplicationFont(":/fonts/opensans") < 0) {

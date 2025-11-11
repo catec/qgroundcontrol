@@ -755,6 +755,7 @@ HEADERS += \
     src/AnalyzeView/GeoTagController.h \
     src/AnalyzeView/ExifParser.h \
     src/Geosub/FuelManager.h \
+    src/Geosub/PCGicaManager.h \
     src/Geosub/GICA.h \
     src/Geosub/TrafficViewer.h \
     src/Geosub/ADSB.h \
@@ -1015,6 +1016,7 @@ SOURCES += \
     src/AnalyzeView/ExifParser.cc \
     src/Geosub/GICA.cc \
     src/Geosub/FuelManager.cc \
+    src/Geosub/PCGicaManager.cc \
     src/Geosub/TrafficViewer.cc \
     src/Geosub/ADSB.cc \
     src/Telespazio/GPSFeedback.cc \

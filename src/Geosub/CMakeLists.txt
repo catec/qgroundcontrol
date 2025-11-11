@@ -7,6 +7,8 @@ add_custom_target(GeosubWidgetsQml
 add_library(Geosub
 	GICA.h
 	GICA.cc
+	PCGicaManager.h
+	PCGicaManager.cc
 	FuelManager.h
 	FuelManager.cc
 	ADSB.h

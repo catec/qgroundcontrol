@@ -200,6 +200,8 @@ const QVariantList& ArduSubFirmwarePlugin::toolIndicators(const Vehicle* vehicle
           QVariant::fromValue(
               QUrl::fromUserInput("qrc:/toolbar/FuelIndicator.qml")),
           QVariant::fromValue(
+              QUrl::fromUserInput("qrc:/toolbar/PCGicaIndicator.qml")),
+          QVariant::fromValue(
               QUrl::fromUserInput("qrc:/toolbar/JoystickIndicator.qml")),
       });
     }

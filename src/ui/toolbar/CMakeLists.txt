@@ -3,6 +3,7 @@ add_custom_target(UiToolbarQml
 		ArmedIndicator.qml
 		BatteryIndicator.qml
 		FuelIndicator.qml
+		PCGicaIndicator.qml
 		GPSIndicator.qml
 		GPSRTKIndicator.qml
 		JoystickIndicator.qml
