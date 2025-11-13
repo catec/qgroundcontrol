@@ -26,7 +26,7 @@ void PCGicaManager::_setConnecting()
   _update("GPS Gica: Connecting...", "#f0ad4e"); // amarillo
   emit gicaOkChanged(false);
 
-  int randomDelay = QRandomGenerator::global()->bounded(6000, 120001);
+  int randomDelay = QRandomGenerator::global()->bounded(6000, 12001);
   _connectingTimer.setSingleShot(true);
   _connectingTimer.start(randomDelay);
 }
